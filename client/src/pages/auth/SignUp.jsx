@@ -3,12 +3,9 @@ import * as Yup from "yup";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 
 const SignupSchema = Yup.object().shape({
-  firstName: Yup.string().required("Enter your first name"),
-  lastName: Yup.string().required("Enter your last name"),
-  age: Yup.number()
-    .required("Enter your age")
-    .min(18, "You must be 18 years old")
-    .integer("Enter valid age"),
+  firstname: Yup.string().required("Enter your first name"),
+  lastname: Yup.string().required("Enter your last name"),
+  username: Yup.string().required("Enter your desired username"),
   email: Yup.string()
     .email("Enter a valid email address")
     .required("Email is required"),
@@ -22,9 +19,9 @@ const SignUp = () => {
     <div>
       <Formik
         initialValues={{
-          firstName: "",
-          lastName: "",
-          age: "",
+          firstname: "",
+          lastname: "",
+          username: "",
           email: "",
           password: "",
         }}
@@ -34,37 +31,37 @@ const SignUp = () => {
         }}
       >
         <Form>
-          <label htmlFor="firstName">First Name:</label>
+          <label htmlFor="firstname">First Name:</label>
           <Field
             type="text"
-            name="firstName"
-            id="firstName"
+            name="firstname"
+            id="firstname"
             placeholder="John"
             autocomplete="off"
           />
-          <ErrorMessage name="firstName" component={"div"} />
+          <ErrorMessage name="firstname" component={"div"} />
 
-          <label htmlFor="lastName">Last Name:</label>
+          <label htmlFor="lastname">Last Name:</label>
           <Field
             type="text"
-            name="lastName"
-            id="lastName"
+            name="lastname"
+            id="lastname"
             placeholder="Doe"
             autocomplete="off"
           />
-          <ErrorMessage name="lastName" component={"div"} />
+          <ErrorMessage name="lastname" component={"div"} />
 
-          <label htmlFor="age">Age:</label>
+          <label htmlFor="username">Username:</label>
           <Field
             type="text"
-            name="age"
-            id="age"
-            placeholder="25"
+            name="username"
+            id="username"
+            placeholder="johndoe"
             autocomplete="off"
           />
-          <ErrorMessage name="age" component={"div"} />
+          <ErrorMessage name="username" component={"div"} />
 
-          <label htmlFor="age">Email:</label>
+          <label htmlFor="email">Email:</label>
           <Field
             type="text"
             name="email"
@@ -74,12 +71,12 @@ const SignUp = () => {
           />
           <ErrorMessage name="email" component={"div"} />
 
-          <label htmlFor="age">Password:</label>
+          <label htmlFor="password">Password:</label>
           <Field
             type="password"
             name="password"
             id="password"
-            placeholder="*****"
+            placeholder="********"
             autocomplete="off"
           />
           <ErrorMessage name="password" component={"div"} />
