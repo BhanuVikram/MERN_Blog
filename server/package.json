@@ -15,17 +15,21 @@
     "git",
     "GitHub",
     "vscode",
-    "MERN-blog-fullstack",
-    "blog-fullstack",
-    "blog-MERN",
-    "blog-backend",
-    "blog-server"
+    "fullstack blog",
+    "MERN blog",
+    "MERN blog - fullstack",
+    "blog backend",
+    "blog server"
   ],
   "author": "Bhanu Vikram",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.0"
   },
