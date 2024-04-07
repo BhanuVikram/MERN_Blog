@@ -1,8 +1,9 @@
 import React from "react";
 import * as Yup from "yup";
 import { Formik, Field, ErrorMessage, Form } from "formik";
+import axios from "axios";
 
-const SignupSchema = Yup.object().shape({
+const SignUpSchema = Yup.object().shape({
   firstname: Yup.string().required("Enter your first name"),
   lastname: Yup.string().required("Enter your last name"),
   username: Yup.string().required("Enter your desired username"),
@@ -25,9 +26,17 @@ const SignUp = () => {
           email: "",
           password: "",
         }}
-        validationSchema={SignupSchema}
+        validationSchema={SignUpSchema}
         onSubmit={(values) => {
           console.log("values:", values);
+          axios
+            .post(`http://localhost:8000/api/v1/signup`, values)
+            .then((res) => {
+              console.log(res.message);
+            })
+            .catch((err) => {
+              console.log(res.error);
+            });
         }}
       >
         <Form>
