@@ -10,7 +10,7 @@ const {
 
 // * CONTROLLERS IMPORT
 
-const { createBlog } = require("../controllers/blog.controllers");
+const { createBlog } = require("../controllers/blogpost.controllers");
 
 // * CONTROLLERS USE
 

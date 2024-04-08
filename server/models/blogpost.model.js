@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const blogSchema = new mongoose.Schema({
+const blogpostSchema = new mongoose.Schema({
   title: {
     type: String,
     minlength: [4, "Title cannot be shorter than four characters"],
@@ -23,4 +23,4 @@ const blogSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Blog", blogSchema);
+module.exports = mongoose.model("Blogpost", blogpostSchema);

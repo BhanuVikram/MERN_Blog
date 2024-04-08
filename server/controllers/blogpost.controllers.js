@@ -1,4 +1,4 @@
-const Blog = require("../models/blog.model");
+const Blog = require("../models/blogpost.model");
 
 // * CREATE NEW BLOG - ADMIN
 
@@ -6,15 +6,15 @@ exports.createBlog = async (req, res, next) => {
   res.header("Content-Type", "application/json");
 
   try {
-    const newBlog = new Blog({
+    const newBlogpost = new Blog({
       title: req.body.title,
       content: req.body.content,
       author: req.user._id,
     });
-    await newBlog.save();
+    await newBlogpost.save();
     return res.status(201).json({
       success: true,
-      newBlog,
+      newBlogpost,
       message: "Blog created successfully!!!",
     });
   } catch (error) {

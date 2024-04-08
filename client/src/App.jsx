@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // * PAGES IMPORT
 import Home from "./pages/user/Home";
-import Blog from "./pages/user/Blog";
+import Blogpost from "./pages/user/Blogpost";
 import Dashboard from "./pages/admin/Dashboard";
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
@@ -33,7 +33,7 @@ const App = () => {
           path="/blog/:_id"
           element={
             <MainLayout>
-              <Blog />
+              <Blogpost />
             </MainLayout>
           }
         />
