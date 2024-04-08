@@ -24,9 +24,11 @@ app.use(cookieParser());
 // * IMPORT ROUTES
 
 const signUp = require("./routes/user.routes");
+const createBlog = require("./routes/blog.routes");
 
 // * CALL ROUTES
 
 app.use("/api/v1", signUp);
+app.use("/api/v1", createBlog);
 
 module.exports = app;
