@@ -46,7 +46,7 @@ const SignUp = () => {
             name="firstname"
             id="firstname"
             placeholder="John"
-            autocomplete="off"
+            autoComplete="off"
           />
           <ErrorMessage name="firstname" component={"div"} />
 
@@ -56,7 +56,7 @@ const SignUp = () => {
             name="lastname"
             id="lastname"
             placeholder="Doe"
-            autocomplete="off"
+            autoComplete="off"
           />
           <ErrorMessage name="lastname" component={"div"} />
 
@@ -66,7 +66,7 @@ const SignUp = () => {
             name="username"
             id="username"
             placeholder="johndoe"
-            autocomplete="off"
+            autoComplete="off"
           />
           <ErrorMessage name="username" component={"div"} />
 
@@ -76,7 +76,7 @@ const SignUp = () => {
             name="email"
             id="email"
             placeholder="abc@xyz.com"
-            autocomplete="off"
+            autoComplete="off"
           />
           <ErrorMessage name="email" component={"div"} />
 
@@ -86,7 +86,7 @@ const SignUp = () => {
             name="password"
             id="password"
             placeholder="********"
-            autocomplete="off"
+            autoComplete="off"
           />
           <ErrorMessage name="password" component={"div"} />
 

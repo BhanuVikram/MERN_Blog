@@ -25,6 +25,7 @@ const SignIn = () => {
             .post(`http://localhost:8000/api/v1/signin`, values)
             .then((res) => {
               console.log(res.message);
+              localStorage.setItem("accessToken", res.data.token);
             })
             .catch((err) => {
               console.log(res.error);
@@ -38,7 +39,7 @@ const SignIn = () => {
             name="username"
             id="username"
             placeholder="janedoe"
-            autocomplete="off"
+            autoComplete="off"
           />
           <ErrorMessage name="username" component={"div"} />
 
@@ -48,7 +49,7 @@ const SignIn = () => {
             name="password"
             id="password"
             placeholder="********"
-            autocomplete="off"
+            autoComplete="off"
           />
           <ErrorMessage name="password" component={"div"} />
 
