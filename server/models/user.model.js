@@ -15,6 +15,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     maxlength: [30, "Username cannot exceed thirty characters"],
     required: [true, "Please enter valid username"],
+    unique: [true, "Username already exists. Please choose another one."],
   },
   email: {
     type: String,
@@ -26,6 +27,11 @@ const userSchema = new mongoose.Schema({
     minlength: [8, "Password cannot be shorter than eight characters"],
     required: [true, "Please enter valid password"],
     select: false,
+  },
+  role: {
+    type: String,
+    enum: ["user", "admin"],
+    default: "user",
   },
 });
 
