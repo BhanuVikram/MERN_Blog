@@ -2,7 +2,7 @@ const Blog = require("../models/blogpost.model");
 
 // * CREATE NEW BLOG - ADMIN
 
-exports.createBlog = async (req, res, next) => {
+exports.createBlogpost = async (req, res, next) => {
   res.header("Content-Type", "application/json");
 
   try {

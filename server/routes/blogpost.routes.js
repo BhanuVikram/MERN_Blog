@@ -10,12 +10,12 @@ const {
 
 // * CONTROLLERS IMPORT
 
-const { createBlog } = require("../controllers/blogpost.controllers");
+const { createBlogpost } = require("../controllers/blogpost.controllers");
 
 // * CONTROLLERS USE
 
 router
-  .route("/createblog")
-  .post(isAuthenticated, isAuthorized("admin"), createBlog);
+  .route("/createblogpost")
+  .post(isAuthenticated, isAuthorized("admin"), createBlogpost);
 
 module.exports = router;

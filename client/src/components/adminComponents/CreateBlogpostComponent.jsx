@@ -25,7 +25,7 @@ const CreateBlogpostComponent = () => {
         onSubmit={(values) => {
           console.log("values:", values);
           axios
-            .post(`http://localhost:8000/api/v1/createblog`, values, {
+            .post(`http://localhost:8000/api/v1/createblogpost`, values, {
               headers,
             })
             .then((res) => {
