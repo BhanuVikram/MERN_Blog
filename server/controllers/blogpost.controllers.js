@@ -27,6 +27,35 @@ exports.createBlogpost = async (req, res, next) => {
 };
 
 // * EDIT BLOGPOST - ADMIN
+exports.updateBlogpost = async (req, res, next) => {
+  res.header("Content-Type", "application/json");
+  try {
+    let singleBlogpost = await Blogpost.findById(req.params._id);
+    if (!singleBlogpost) {
+      return res.send("Blogpost not found!");
+    }
+    singleBlogpost = await Blogpost.findByIdAndUpdate(
+      req.params._id,
+      req.body,
+      {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false,
+      }
+    );
+    return res.status(200).json({
+      success: true,
+      singleBlogpost,
+      message: "Blog updated successfully!!!",
+    });
+  } catch (error) {
+    console.log(err);
+    res.status(500).json({
+      succes: false,
+      message: `Error ${err.message}`,
+    });
+  }
+};
 
 // * DELETE BLOGPOST - ADMIN
 exports.deleteBlogpost = async (req, res, next) => {

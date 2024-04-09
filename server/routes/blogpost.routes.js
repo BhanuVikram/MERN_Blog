@@ -14,6 +14,7 @@ const {
   createBlogpost,
   getAllBlogposts,
   deleteBlogpost,
+  updateBlogpost,
 } = require("../controllers/blogpost.controllers");
 
 // * CONTROLLERS USE
@@ -27,5 +28,9 @@ router.route("/getallblogposts").get(getAllBlogposts);
 router
   .route("/deleteblogpost/:_id")
   .delete(isAuthenticated, isAuthorized("admin"), deleteBlogpost);
+
+router
+  .route("/updateblogpost/:_id")
+  .put(isAuthenticated, isAuthorized("admin"), updateBlogpost);
 
 module.exports = router;
