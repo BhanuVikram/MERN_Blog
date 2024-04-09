@@ -29,6 +29,24 @@ exports.createBlogpost = async (req, res, next) => {
 // * EDIT BLOGPOST - ADMIN
 
 // * DELETE BLOGPOST - ADMIN
+exports.deleteBlogpost = async (req, res, next) => {
+  res.header("Content-Type", "application/json");
+  try {
+    let singleBlogpost = await Blogpost.findById(req.params._id);
+    if (!singleBlogpost) {
+      return res.send("Blogpost not found!");
+    }
+    Blogpost.deleteOne({ _id: req.params._id }).then(() => {
+      res.json("Blogpost deleted successfully!");
+    });
+  } catch (error) {
+    console.log(err);
+    res.status(500).json({
+      succes: false,
+      message: `Error ${err.message}`,
+    });
+  }
+};
 
 // * GET ALL BLOGPOSTS
 exports.getAllBlogposts = async (req, res, next) => {
