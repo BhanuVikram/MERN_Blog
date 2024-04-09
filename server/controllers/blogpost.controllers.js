@@ -27,6 +27,7 @@ exports.createBlogpost = async (req, res, next) => {
 };
 
 // * EDIT BLOGPOST - ADMIN
+
 exports.updateBlogpost = async (req, res, next) => {
   res.header("Content-Type", "application/json");
   try {
@@ -58,6 +59,7 @@ exports.updateBlogpost = async (req, res, next) => {
 };
 
 // * DELETE BLOGPOST - ADMIN
+
 exports.deleteBlogpost = async (req, res, next) => {
   res.header("Content-Type", "application/json");
   try {
@@ -77,7 +79,31 @@ exports.deleteBlogpost = async (req, res, next) => {
   }
 };
 
+// * GET A SINGLE BLOGPOST
+
+exports.getSingleBlogpost = async (req, res, next) => {
+  res.header("Content-Type", "application/json");
+  try {
+    let singleBlogpost = await Blogpost.findById(req.params._id);
+    if (!singleBlogpost) {
+      return res.send("Blogpost not found!");
+    }
+    res.status(200).json({
+      success: true,
+      singleBlogpost,
+      message: "Got the blogpost!",
+    });
+  } catch (error) {
+    console.log(err);
+    res.status(500).json({
+      succes: false,
+      message: `Error ${err.message}`,
+    });
+  }
+};
+
 // * GET ALL BLOGPOSTS
+
 exports.getAllBlogposts = async (req, res, next) => {
   res.header("Content-Type", "application/json");
   try {
