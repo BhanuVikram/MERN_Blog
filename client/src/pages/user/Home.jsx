@@ -1,9 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import HeroSectionComponent from "../../components/userComponents/HeroSectionComponent";
 import SingleBlogpostComponent from "../../components/userComponents/SingleBlogpostComponent";
 
 const Home = () => {
-  return <div>Home</div>;
+  const [blogposts, setBlogposts] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/v1/getallblogposts")
+      .then((res) => setBlogposts(res.data.allBlogposts))
+      .catch((err) => console.log(err));
+  }, [axios]);
+
+  return (
+    <div className="main">
+      <div className="blogposts">
+        {blogposts &&
+          blogposts.map((item, index) => {
+            return (
+              <SingleBlogpostComponent
+                key={index}
+                id={item._id}
+                title={item.title}
+                author={item.author}
+                date={item.date}
+                content={item.content}
+              />
+            );
+          })}
+      </div>
+    </div>
+  );
 };
 
 export default Home;
