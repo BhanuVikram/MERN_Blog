@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import HeroSectionComponent from "../../components/userComponents/HeroSectionComponent";
 import SingleBlogpostComponent from "../../components/userComponents/SingleBlogpostComponent";
+import "../../styles/pagesStyles/userPagesStyles/homePageStyles.scss";
 
 const Home = () => {
   const [blogposts, setBlogposts] = useState([]);

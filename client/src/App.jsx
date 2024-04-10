@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // * PAGES IMPORT
 import Home from "./pages/user/Home";
-import Blogpost from "./pages/user/Blogpost";
+import Blogpost from "./pages/user/SingleBlogpost";
 import Dashboard from "./pages/admin/Dashboard";
 import SignIn from "./pages/auth/SignIn";
 import SignUp from "./pages/auth/SignUp";
@@ -13,8 +13,8 @@ import Page_404 from "./pages/lost/Page_404";
 import Page_500 from "./pages/lost/Page_500";
 
 // * LAYOUTS IMPORT
-import MainLayout from "./layout/MainLayout";
-import AuthLayout from "./layout/AuthLayout";
+import MainLayout from "./layouts/MainLayout";
+import AuthLayout from "./layouts/AuthLayout";
 
 const App = () => {
   return (

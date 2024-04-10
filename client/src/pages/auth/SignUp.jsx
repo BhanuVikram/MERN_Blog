@@ -2,6 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import axios from "axios";
+import "../../styles/pagesStyles/authPagesStyles/signUpPageStyles.scss";
 
 const SignUpSchema = Yup.object().shape({
   firstname: Yup.string().required("Enter your first name"),

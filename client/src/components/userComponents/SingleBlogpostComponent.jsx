@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../../styles/componentsStyles/userComponentsStyles/singleBlogpostStyles.scss";
 import { Link } from "react-router-dom";
 
 const SingleBlogpostComponent = ({ _id, title, author, date, content }) => {

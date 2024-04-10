@@ -2,6 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import axios from "axios";
+import "../../styles/componentsStyles/adminComponentsStyles/createBlogpostStyles.scss";
 
 const accessToken = localStorage.getItem("accessToken");
 const headers = {

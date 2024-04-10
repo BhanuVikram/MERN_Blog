@@ -2,6 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import axios from "axios";
+import "../../styles/pagesStyles/authPagesStyles/signInPageStyles.scss";
 
 const SignInSchema = Yup.object().shape({
   username: Yup.string().required("Username is required"),
