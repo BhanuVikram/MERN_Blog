@@ -16,6 +16,7 @@ const Home = () => {
 
   return (
     <div className="main">
+      <HeroSectionComponent />
       <div className="blogposts">
         {blogposts &&
           blogposts.map((item, index) => {
@@ -24,7 +25,7 @@ const Home = () => {
                 key={index}
                 id={item._id}
                 title={item.title}
-                author={item.author}
+                author={item.author.username}
                 date={item.date}
                 content={item.content}
               />
