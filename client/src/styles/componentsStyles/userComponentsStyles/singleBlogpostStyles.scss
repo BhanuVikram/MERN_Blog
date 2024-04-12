@@ -1,0 +1,33 @@
+@import "../../partials/_colorsPartials.scss";
+@import "../../partials/_fontsPartials.scss";
+@import "../../partials/_imagesPartials.scss";
+
+.single-blogpost {
+  padding: 50px;
+  color: $color--aliceblue;
+
+  .blogpost-link {
+    text-decoration: none;
+    color: $color--aliceblue;
+  }
+
+  h1 {
+    padding: 15px 0;
+  }
+
+  h3 {
+    padding: 8px 0;
+    font-size: $font--x-large;
+    font-weight: 500;
+  }
+
+  h5 {
+    padding: 8px 0 20px 0;
+    font-size: $font--small;
+    font-weight: 400;
+  }
+
+  p {
+    text-align: justify;
+  }
+}
