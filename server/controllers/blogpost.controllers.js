@@ -1,6 +1,11 @@
 const Blogpost = require("../models/blogpost.model");
 
-// * CREATE NEW BLOG - ADMIN
+// * CREATE NEW BLOGPOST - ADMIN
+
+function splitParagraphs(inputString) {
+  const paragraphs = inputString.split(/\n/);
+  return paragraphs.filter((str) => str.trim() !== "");
+}
 
 exports.createBlogpost = async (req, res, next) => {
   res.header("Content-Type", "application/json");
@@ -8,7 +13,7 @@ exports.createBlogpost = async (req, res, next) => {
   try {
     const newBlogpost = new Blogpost({
       title: req.body.title,
-      content: req.body.content,
+      content: splitParagraphs(req.body.content),
       author: req.user._id,
     });
     await newBlogpost.save();
@@ -107,7 +112,7 @@ exports.getSingleBlogpost = async (req, res, next) => {
 exports.getAllBlogposts = async (req, res, next) => {
   res.header("Content-Type", "application/json");
   try {
-    const allBlogposts = await Blogpost.find();
+    const allBlogposts = await Blogpost.find().populate('author', 'username');
     res.status(200).json({
       success: true,
       allBlogposts,

@@ -50,9 +50,11 @@ const CreateBlogpostComponent = () => {
 
           <label htmlFor="content">Blogpost Content:</label>
           <Field
-            type="textarea"
+            as="textarea"
             name="content"
             id="content"
+            rows={20}
+            cols={100}
             placeholder="Enter blogpost content..."
             autoComplete="off"
           />
