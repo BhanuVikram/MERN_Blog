@@ -5,17 +5,24 @@ import { Link } from "react-router-dom";
 const SingleBlogpostComponent = ({ _id, title, author, date, content }) => {
   return (
     <div className="single-blogpost">
+      <div className="author-date">
+        <h3 className="author">{author}</h3>
+        <h5 className="date">{date}</h5>
+      </div>
       <Link to={`/blog/${_id}`} className="blogpost-link">
-        <h1>{title}</h1>
+        <h1 className="title">{title}</h1>
+        <div className="content">
+          {content.map((string, index) => (
+            <p key={index}>
+              {string} <br />
+              <br />
+            </p>
+          ))}
+        </div>
+        <div className="button">
+          <button>Continue Reading</button>
+        </div>
       </Link>
-      <h3>{author}</h3>
-      <h5>{date}</h5>
-      {content.map((string, index) => (
-        <p key={index}>
-          {string} <br />
-          <br />
-        </p>
-      ))}
     </div>
   );
 };

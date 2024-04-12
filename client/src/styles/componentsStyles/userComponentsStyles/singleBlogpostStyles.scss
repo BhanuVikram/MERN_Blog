@@ -6,28 +6,55 @@
   padding: 50px;
   color: $color--aliceblue;
 
+  .author-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .author {
+    font-size: $font--medium;
+    font-weight: 600;
+  }
+
+  .date {
+    font-size: $font--small;
+    font-weight: 400;
+  }
+
   .blogpost-link {
     text-decoration: none;
     color: $color--aliceblue;
   }
 
-  h1 {
-    padding: 15px 0;
+  .title {
+    padding: 25px 0;
+    min-height: 150px;
   }
 
-  h3 {
-    padding: 8px 0;
-    font-size: $font--x-large;
-    font-weight: 500;
-  }
-
-  h5 {
-    padding: 8px 0 20px 0;
-    font-size: $font--small;
-    font-weight: 400;
-  }
-
-  p {
+  .content {
     text-align: justify;
+  }
+
+  .button {
+    text-align: right;
+  }
+
+  button {
+    padding: 8px 16px;
+    border: 1px solid $color--lightblue;
+    border-radius: 6px;
+    font-family: $fontfamily--primary;
+    font-size: $font--xxx-small;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color--lightblue;
+    background-color: $color--indigo;
+  }
+
+  button:hover {
+    border: 2px solid $color--lightblue;
+    font-weight: 600;
   }
 }

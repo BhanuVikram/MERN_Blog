@@ -109,10 +109,20 @@ exports.getSingleBlogpost = async (req, res, next) => {
 
 // * GET ALL BLOGPOSTS
 
+function splitParagraphs(inputString) {
+  const paragraphs = inputString.split(/\n/);
+  let paragraphsArray = paragraphs.filter((str) => str.trim() !== "");
+  return paragraphsArray.slice(0, 2);
+}
+
 exports.getAllBlogposts = async (req, res, next) => {
   res.header("Content-Type", "application/json");
   try {
-    const allBlogposts = await Blogpost.find().populate('author', 'username');
+    const allBlogposts = await Blogpost.find().populate("author", "username");
+
+    allBlogposts.map(
+      (blogpost, index) => (blogpost.content = blogpost.content.splice(0, 1))
+    );
     res.status(200).json({
       success: true,
       allBlogposts,
