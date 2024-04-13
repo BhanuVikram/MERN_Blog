@@ -109,10 +109,15 @@ exports.getSingleBlogpost = async (req, res, next) => {
 
 // * GET ALL BLOGPOSTS
 
-function splitParagraphs(inputString) {
-  const paragraphs = inputString.split(/\n/);
-  let paragraphsArray = paragraphs.filter((str) => str.trim() !== "");
-  return paragraphsArray.slice(0, 2);
+function extractChars(stringArray) {
+  let result = "";
+  for (const str of stringArray) {
+    result += str.slice(0, 800 - result.length);
+    if (result.length >= 800) {
+      break;
+    }
+  }
+  return result.slice(0, 800) + "...";
 }
 
 exports.getAllBlogposts = async (req, res, next) => {
@@ -121,8 +126,9 @@ exports.getAllBlogposts = async (req, res, next) => {
     const allBlogposts = await Blogpost.find().populate("author", "username");
 
     allBlogposts.map(
-      (blogpost, index) => (blogpost.content = blogpost.content.splice(0, 1))
+      (blogpost, index) => (blogpost.content = extractChars(blogpost.content))
     );
+
     res.status(200).json({
       success: true,
       allBlogposts,
