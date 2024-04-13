@@ -2,6 +2,7 @@
 dist
 dist-ssr
 *.local
+notes.js
 
 # Editor directories and files
 .vscode/*

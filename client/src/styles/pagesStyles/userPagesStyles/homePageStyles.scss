@@ -14,9 +14,11 @@
   .single-blogpost {
     width: 27%;
     margin: 2%;
-    min-height: 550px;
-    // box-shadow: 2px 2px 5px rgba($color: #ffffff, $alpha: 0.4);
+    height: 575px;
+    box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.35);
+  }
 
+  .single-blogpost:hover {
     box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.35);
   }
 }

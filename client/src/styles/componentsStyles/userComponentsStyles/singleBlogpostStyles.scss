@@ -3,6 +3,7 @@
 @import "../../partials/_imagesPartials.scss";
 
 .single-blogpost {
+  position: relative;
   padding: 50px;
   color: $color--aliceblue;
 
@@ -37,7 +38,9 @@
   }
 
   .button {
-    text-align: right;
+    position: absolute;
+    bottom: 40px;
+    right: 50px;
   }
 
   button {
@@ -51,6 +54,7 @@
     letter-spacing: 1px;
     color: $color--lightblue;
     background-color: $color--indigo;
+    cursor: pointer;
   }
 
   button:hover {

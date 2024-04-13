@@ -19,6 +19,8 @@ const SingleBlogpostComponent = ({ _id, title, author, date, content }) => {
             </p>
           ))}
         </div>
+      </Link>
+      <Link to={`/blog/${_id}`}>
         <div className="button">
           <button>Continue Reading</button>
         </div>
