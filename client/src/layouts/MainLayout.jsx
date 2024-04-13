@@ -5,7 +5,7 @@ import "../styles/layoutsStyles/mainLayoutStyles.scss";
 
 const MainLayout = ({ children }) => {
   return (
-    <div>
+    <div className="main-layout">
       <Header />
       <div>{children}</div>
       <Footer />

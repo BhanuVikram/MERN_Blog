@@ -1,0 +1,60 @@
+@import "../partials/_colorsPartials.scss";
+@import "../partials/_fontsPartials.scss";
+@import "../partials/_imagesPartials.scss";
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100vw;
+  padding: 50px 0 70px 0;
+  margin-top: 80px;
+  color: $color--lightblue;
+  background-color: rgba($color: $color--indigo, $alpha: 0.3);
+  box-shadow: rgba($color: $color--lightblue, $alpha: 0.3) 0px -10px 40px 0px;
+
+  .copyright {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .copyright a {
+    margin-bottom: 10px;
+    font-size: $font--medium;
+    text-decoration: none;
+    color: $color--lightblue;
+    opacity: 0.8;
+  }
+
+  .copyright a:hover {
+    opacity: 1;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo img {
+    width: 140px;
+    margin-bottom: 10px;
+  }
+
+  .footer-links {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .footer-links a {
+    margin-left: 15px;
+    font-size: $font--xxx-large;
+    color: $color--lightblue;
+    opacity: 0.8;
+  }
+
+  .footer-links a:hover {
+    opacity: 1;
+  }
+}
