@@ -6,10 +6,12 @@ import "../../styles/pagesStyles/adminPagesStyles/dashboardStyles.scss";
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="dashboard">
       <h1>Admin Dashboard</h1>
-      <CreateBlogpostComponent />
-      <BlogpostsListComponent />
+      <div className="dashboard-top">
+        <CreateBlogpostComponent />
+        <BlogpostsListComponent />
+      </div>
       <EditBlogpostComponent />
     </div>
   );

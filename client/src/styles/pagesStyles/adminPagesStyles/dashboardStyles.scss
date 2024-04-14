@@ -1,0 +1,12 @@
+@import "../../partials/_colorsPartials.scss";
+@import "../../partials/_fontsPartials.scss";
+@import "../../partials/_imagesPartials.scss";
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-top {
+  display: flex;
+}
