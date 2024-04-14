@@ -5,8 +5,28 @@
 .dashboard {
   display: flex;
   flex-direction: column;
-}
 
-.dashboard-top {
-  display: flex;
+  h1 {
+    text-align: center;
+    color: $color--indigo;
+  }
+
+  .sub-headings div {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 50px 0;
+    color: $color--indigo;
+  }
+
+  .dashboard-top {
+    display: flex;
+    width: 100vw;
+  }
+
+  .dashboard-bottom {
+    display: flex;
+    width: 80vw;
+  }
 }

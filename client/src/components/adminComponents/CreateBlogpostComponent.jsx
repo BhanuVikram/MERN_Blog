@@ -44,7 +44,6 @@ const CreateBlogpostComponent = () => {
         }}
       >
         <Form className="create-blogpost-form">
-          <h1>New Blogpost</h1>
           <div className="blogpost-title">
             <label htmlFor="title">Enter Blogpost Title</label>
             <Field

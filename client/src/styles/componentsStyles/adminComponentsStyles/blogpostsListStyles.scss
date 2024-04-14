@@ -1,0 +1,30 @@
+@import "../../partials/_colorsPartials.scss";
+@import "../../partials/_fontsPartials.scss";
+@import "../../partials/_imagesPartials.scss";
+
+.all-blogposts {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+  min-width: 800px;
+  height: 560px;
+  padding: 0 50px 50px 50px;
+  overflow: scroll;
+
+  .one-blogpost td {
+    padding: 20px 8px;
+  }
+
+  .title {
+    font-size: 18px;
+    width: 600px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .date {
+    width: 115px;
+  }
+}

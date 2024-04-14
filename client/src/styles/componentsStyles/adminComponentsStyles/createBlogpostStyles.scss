@@ -3,18 +3,15 @@
 @import "../../partials/_imagesPartials.scss";
 
 .create-blogpost-form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: left;
-  justify-content: center;
-  width: 800px;
-  height: 800px;
-  padding: 50px;
-
-  h1 {
-    text-align: center;
-    padding-bottom: 20px;
-  }
+  justify-content: flex-start;
+  min-width: 800px;
+  width: 50vw;
+  height: 650px;
+  padding: 0 50px 50px 50px;
 
   .blogpost-title {
     display: block;

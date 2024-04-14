@@ -8,11 +8,21 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <h1>Admin Dashboard</h1>
+      <div className="sub-headings">
+        <div>
+          <h1>New Blogpost</h1>
+        </div>
+        <div>
+          <h1>All Blogposts</h1>
+        </div>
+      </div>
       <div className="dashboard-top">
         <CreateBlogpostComponent />
         <BlogpostsListComponent />
       </div>
-      <EditBlogpostComponent />
+      <div className="dashboard-bottom">
+        <EditBlogpostComponent />
+      </div>
     </div>
   );
 };
