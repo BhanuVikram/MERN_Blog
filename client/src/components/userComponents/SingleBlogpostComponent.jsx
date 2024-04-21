@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/componentsStyles/userComponentsStyles/singleBlogpostStyles.scss";
 import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 
 const SingleBlogpostComponent = ({ _id, title, author, date, content }) => {
+  // console.log(_id);
   return (
     <div className="single-blogpost">
       <div className="author-date">
@@ -13,10 +15,7 @@ const SingleBlogpostComponent = ({ _id, title, author, date, content }) => {
         <h1 className="title">{title}</h1>
         <div className="content">
           {content.map((string, index) => (
-            <p key={index}>
-              {string} <br />
-              <br />
-            </p>
+            <ReactMarkdown key={index}>{string}</ReactMarkdown>
           ))}
         </div>
       </Link>

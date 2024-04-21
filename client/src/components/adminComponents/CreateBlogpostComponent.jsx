@@ -13,11 +13,11 @@ const BlogpostSchema = Yup.object().shape({
   title: Yup.string()
     .required("Enter blogpost title")
     .min(2, "Title cannot be shorter than 2 characters")
-    .max(80, "Title cannot be longer than 80 characters"),
+    .max(120, "Title cannot be longer than 120 characters"),
   content: Yup.string()
     .required("Enter blogpost content")
-    .min(100, "Content cannot be shorter than 100 characters")
-    .max(30000, "Content cannot be longer than 30000 characters"),
+    .min(80, "Content cannot be shorter than 80 characters")
+    .max(50000, "Content cannot be longer than 50000 characters"),
 });
 
 const CreateBlogpostComponent = () => {
@@ -37,6 +37,7 @@ const CreateBlogpostComponent = () => {
             })
             .then((res) => {
               console.log(res.message);
+              window.location.reload();
             })
             .catch((err) => {
               console.log(res.error);
