@@ -4,14 +4,14 @@ const blogpostSchema = new mongoose.Schema({
   title: {
     type: String,
     minlength: [2, "Title cannot be shorter than 2 characters"],
-    maxlength: [80, "Title cannot be longer than 80 characters"],
+    maxlength: [120, "Title cannot be longer than 120 characters"],
     required: [true, "Please enter a title"],
   },
   content: [
     {
       type: String,
-      minlength: [100, "Content cannot be shorter than 100 characters"],
-      maxlength: [30000, "Content cannot be longer than 30000 characters"],
+      minlength: [1, "Content cannot be empty"],
+      maxlength: [100000, "Content cannot be longer than 100,000 characters"],
       required: [true, "Please enter your blog content"],
     },
   ],

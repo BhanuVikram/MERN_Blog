@@ -73,7 +73,10 @@ exports.deleteBlogpost = async (req, res, next) => {
       return res.send("Blogpost not found!");
     }
     Blogpost.deleteOne({ _id: req.params._id }).then(() => {
-      res.json("Blogpost deleted successfully!");
+      res.status(200).json({
+        success: true,
+        message: "Blogpost deleted successfully",
+      });
     });
   } catch (error) {
     console.log(err);
