@@ -23,7 +23,7 @@ const Home = () => {
             return (
               <SingleBlogpostComponent
                 key={index}
-                id={item._id}
+                _id={item._id}
                 title={item.title}
                 author={item.author.username}
                 date={item.date}

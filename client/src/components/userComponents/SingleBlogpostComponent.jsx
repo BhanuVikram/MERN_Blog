@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 
 const SingleBlogpostComponent = ({ _id, title, author, date, content }) => {
-  // console.log(_id);
   return (
     <div className="single-blogpost">
       <div className="author-date">

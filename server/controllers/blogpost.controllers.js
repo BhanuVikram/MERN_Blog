@@ -92,7 +92,10 @@ exports.deleteBlogpost = async (req, res, next) => {
 exports.getSingleBlogpost = async (req, res, next) => {
   res.header("Content-Type", "application/json");
   try {
-    let singleBlogpost = await Blogpost.findById(req.params._id);
+    let singleBlogpost = await Blogpost.findById(req.params._id).populate(
+      "author",
+      "username"
+    );
     if (!singleBlogpost) {
       return res.send("Blogpost not found!");
     }
