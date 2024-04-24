@@ -30,7 +30,7 @@ const Blogpost = () => {
 
       {singleBlogpost &&
         singleBlogpost.content &&
-        Parser(singleBlogpost.content.toString())}
+        Parser(singleBlogpost.content)}
     </div>
   );
 };

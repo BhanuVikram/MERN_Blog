@@ -13,7 +13,7 @@ const SingleBlogpostComponent = ({ _id, title, author, date, content }) => {
       </div>
       <Link to={`/blog/${_id}`} className="blogpost-link">
         <h1 className="title">{title}</h1>
-        <div className="content">{Parser(content.toString())}</div>
+        <div className="content">{Parser(content)}</div>
       </Link>
       <Link to={`/blog/${_id}`}>
         <div className="button">

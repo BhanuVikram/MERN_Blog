@@ -2,18 +2,13 @@ const Blogpost = require("../models/blogpost.model");
 
 // * CREATE NEW BLOGPOST - ADMIN
 
-function splitParagraphs(inputString) {
-  const paragraphs = inputString.split(/\n/);
-  return paragraphs.filter((str) => str.trim() !== "");
-}
-
 exports.createBlogpost = async (req, res, next) => {
   res.header("Content-Type", "application/json");
 
   try {
     const newBlogpost = new Blogpost({
       title: req.body.title,
-      content: splitParagraphs(req.body.content),
+      content: req.body.content,
       author: req.user._id,
     });
     await newBlogpost.save();
