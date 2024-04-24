@@ -16,12 +16,10 @@ const Dashboard = () => {
           <h1>All Blogposts</h1>
         </div>
       </div>
-      <div className="dashboard-top">
+      <div className="dashboard-components">
         <CreateBlogpostComponent />
         <BlogpostsListComponent />
-      </div>
-      <div className="dashboard-bottom">
-        <EditBlogpostComponent />
+        {/* <EditBlogpostComponent /> */}
       </div>
     </div>
   );

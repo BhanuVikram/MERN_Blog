@@ -9,7 +9,7 @@
   align-items: left;
   justify-content: flex-start;
   min-width: 800px;
-  width: 50vw;
+  width: 45vw;
   height: 650px;
   padding: 0 50px 50px 50px;
 
@@ -21,8 +21,8 @@
 
   .blogpost-title label {
     display: block;
-    padding-bottom: 4px;
-    font-size: $font--medium;
+    padding-bottom: 10px;
+    font-size: $font--x-large;
   }
 
   .blogpost-title #title {
@@ -33,35 +33,29 @@
 
   .blogpost-content {
     display: block;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     width: 100%;
   }
 
   .blogpost-content label {
     display: block;
-    padding-bottom: 4px;
-    font-size: $font--medium;
-  }
-
-  .blogpost-content #content {
-    display: block;
-    width: 100%;
-    height: 400px;
-    padding: 8px;
-    font-family: $fontfamily--primary;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    font-size: $font--x-large;
   }
 
   .error-message {
     text-align: right;
     font-size: $font--small;
     color: $color--red;
+    padding-top: 2px;
   }
 
-  button {
+  .submit {
     padding: 8px 16px;
     margin: 10px 0;
     border: 1px solid $color--lightblue;
-    border-radius: 6px;
+    border-radius: 0.25rem;
     font-family: $fontfamily--primary;
     font-size: $font--x-small;
     font-weight: 400;
@@ -72,8 +66,100 @@
     cursor: pointer;
   }
 
-  button:hover {
+  .submit:hover {
     border: 2px solid $color--lightblue;
     font-weight: 600;
+  }
+
+  button {
+    padding: 4px 4px;
+    margin: 4px 2px;
+    border: 1px solid $color--lightblue;
+    border-radius: 0.25rem;
+    font-family: $fontfamily--primary;
+    font-size: $font--xxx-small;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color--lightblue;
+    background-color: $color--indigo;
+    cursor: pointer;
+  }
+
+  button:hover {
+    border: 1px solid $color--lightblue;
+    box-shadow: rgba(157, 228, 246, 0.5) 0px 4px 4px,
+      rgba(157, 228, 246, 0.5) 0px -4px 4px,
+      rgba(157, 228, 246, 0.5) 4px 0px 4px,
+      rgba(157, 228, 246, 0.5) -4px 0px 4px;
+    font-weight: 500;
+  }
+}
+
+.editor-content {
+  width: 100%;
+  height: 300px;
+  overflow: scroll;
+  padding: 10px;
+  border: 1px solid $color--indigo;
+  border-radius: 0.25rem;
+  color: $color--black;
+  background-color: $color--aliceblue;
+}
+
+.tiptap {
+  ul,
+  ol {
+    padding: 0 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: 1.1;
+  }
+
+  code {
+    padding: 0 0.3rem;
+    border-radius: 0.25rem;
+    color: $color--lightblue;
+    background-color: $color--almost-black;
+  }
+
+  pre {
+    padding: 0.75rem 1rem;
+    margin: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid $color--indigo;
+    font-family: "JetBrainsMono", monospace;
+    color: $color--lightblue;
+    background-color: $color--almost-black;
+
+    code {
+      padding: 0;
+      background: $color--almost-black;
+      font-size: 0.8rem;
+      color: $color--lightblue;
+      background-color: $color--almost-black;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  blockquote {
+    padding-left: 1rem;
+    border-left: 2px solid $color--indigo;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid $color--indigo;
+    margin: 2rem 0;
   }
 }
