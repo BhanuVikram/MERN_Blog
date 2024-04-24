@@ -20,13 +20,10 @@
     color: $color--indigo;
   }
 
-  .dashboard-top {
+  .dashboard-components {
     display: flex;
+    align-items: center;
+    justify-content: space-around;
     width: 100vw;
-  }
-
-  .dashboard-bottom {
-    display: flex;
-    width: 80vw;
   }
 }

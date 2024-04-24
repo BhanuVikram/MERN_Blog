@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/componentsStyles/userComponentsStyles/singleBlogpostStyles.scss";
 import { Link } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
+import Parser from "html-react-parser";
 
 const SingleBlogpostComponent = ({ _id, title, author, date, content }) => {
   return (
@@ -12,11 +13,7 @@ const SingleBlogpostComponent = ({ _id, title, author, date, content }) => {
       </div>
       <Link to={`/blog/${_id}`} className="blogpost-link">
         <h1 className="title">{title}</h1>
-        <div className="content">
-          {content.map((string, index) => (
-            <ReactMarkdown key={index}>{string}</ReactMarkdown>
-          ))}
-        </div>
+        <div className="content">{Parser(content.toString())}</div>
       </Link>
       <Link to={`/blog/${_id}`}>
         <div className="button">

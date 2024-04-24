@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import "../../styles/pagesStyles/userPagesStyles/singleBlogpostStyles.scss";
+import Parser from "html-react-parser";
 
 const Blogpost = () => {
   const { _id } = useParams();
@@ -29,14 +30,7 @@ const Blogpost = () => {
 
       {singleBlogpost &&
         singleBlogpost.content &&
-        singleBlogpost.content.map((paragraph, index) => {
-          return (
-            <div key={index} className="blogpost-content">
-              <ReactMarkdown>{paragraph}</ReactMarkdown>
-              <br />
-            </div>
-          );
-        })}
+        Parser(singleBlogpost.content.toString())}
     </div>
   );
 };
