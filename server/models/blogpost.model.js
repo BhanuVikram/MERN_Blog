@@ -9,7 +9,7 @@ const blogpostSchema = new mongoose.Schema({
   },
   content: {
     type: String,
-    minlength: [1, "Content cannot be empty"],
+    minlength: [100, "Content cannot be empty"],
     maxlength: [100000, "Content cannot be longer than 100,000 characters"],
     required: [true, "Please enter your blog content"],
   },

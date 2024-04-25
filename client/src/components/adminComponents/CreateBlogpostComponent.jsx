@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { EditorProvider, EditorContent, useEditor } from "@tiptap/react";
-import * as Yup from "yup";
-import { Formik, Field, ErrorMessage, Form } from "formik";
+import { Formik, Field, Form } from "formik";
 import axios from "axios";
 import StarterKit from "@tiptap/starter-kit";
 import { Color } from "@tiptap/extension-color";
@@ -14,13 +13,6 @@ const accessToken = localStorage.getItem("accessToken");
 const headers = {
   Authorization: `Bearer ${accessToken}`,
 };
-
-const BlogpostSchema = Yup.object().shape({
-  title: Yup.string()
-    .required("Enter blogpost title")
-    .min(2, "Title cannot be shorter than 2 characters")
-    .max(120, "Title cannot be longer than 120 characters"),
-});
 
 const MenuBar = ({ editor }) => {
   if (!editor) {
@@ -260,7 +252,10 @@ const extensions = [
 ];
 
 const CreateBlogpostComponent = () => {
+  const [title, setTitle] = useState("");
   const [editorContent, setEditorContent] = useState("");
+  const [isTitle, setIsTitle] = useState(false);
+  const [isContent, setIsContent] = useState(false);
 
   const editor = useEditor({
     editorProps: {
@@ -275,44 +270,63 @@ const CreateBlogpostComponent = () => {
     },
   });
 
-  const isEditorEmpty = editorContent.trim() === "";
+  useEffect(() => {
+    setIsTitle(title.length > 1 && title.length < 121);
+  }, [title]);
+
+  useEffect(() => {
+    setIsContent(editorContent.length > 99 && editorContent.length < 100001);
+  }, [editorContent]);
 
   return (
     <div>
       <Formik
         initialValues={{
           title: "",
+          content: "",
         }}
-        validationSchema={BlogpostSchema}
         onSubmit={(values) => {
-          const updatedValues = { ...values, content: editorContent };
-          console.log("updatedValues:", updatedValues);
-          axios
-            .post(
-              `http://localhost:8000/api/v1/createblogpost`,
-              updatedValues,
-              {
-                headers,
-              }
-            )
-            .then((res) => {
-              console.log(res.message);
-              window.location.reload();
-            })
-            .catch((err) => {
-              console.log(res.error);
-            });
+          const updatedValues = {
+            ...values,
+            title,
+            content: editorContent,
+          };
+
+          if (isTitle && isContent) {
+            axios
+              .post(
+                `http://localhost:8000/api/v1/createblogpost`,
+                updatedValues,
+                {
+                  headers,
+                }
+              )
+              .then((res) => {
+                console.log(res.message);
+                window.location.reload();
+              })
+              .catch((err) => {
+                console.log(res.error);
+              });
+          }
         }}
       >
         <Form className="create-blogpost-form">
           <div className="blogpost-title">
             <label htmlFor="title">Enter Blogpost Title</label>
-            <Field type="text" name="title" id="title" autoComplete="off" />
-            <ErrorMessage
-              className="error-message"
+            <Field
+              type="text"
               name="title"
-              component={"div"}
+              id="title"
+              autoComplete="off"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
             />
+            {!isTitle && (
+              <div className="error-message">
+                Title must be between 2 and 120 characters!
+              </div>
+            )}
           </div>
           <div className="blogpost-content">
             <label htmlFor="content">Enter Blogpost Content</label>
@@ -328,13 +342,17 @@ const CreateBlogpostComponent = () => {
                 <EditorContent editor={editor} />
               </EditorProvider>
             </div>
-            <ErrorMessage
-              className="error-message"
-              name="content"
-              component={"div"}
-            />
+            {!isContent && (
+              <div className="error-message">
+                Content must be between 100 and 100,000 characters!
+              </div>
+            )}
           </div>
-          <button type="submit" className="submit">
+          <button
+            disabled={!isTitle || !isContent}
+            type="submit"
+            className={!isTitle || !isContent ? "disabled" : "submit"}
+          >
             Publish
           </button>
         </Form>

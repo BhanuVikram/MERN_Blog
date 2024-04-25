@@ -17,6 +17,7 @@
     display: block;
     padding-bottom: 10px;
     width: 100%;
+    min-height: 100px;
   }
 
   .blogpost-title label {
@@ -35,6 +36,7 @@
     display: block;
     padding-bottom: 20px;
     width: 100%;
+    min-height: 470px;
   }
 
   .blogpost-content label {
@@ -45,16 +47,16 @@
   }
 
   .error-message {
-    text-align: right;
+    text-align: left;
     font-size: $font--small;
-    color: $color--red;
-    padding-top: 2px;
+    color: $color--lightblue;
+    padding-top: 4px;
   }
 
   .submit {
     padding: 8px 16px;
     margin: 10px 0;
-    border: 1px solid $color--lightblue;
+    border: 2px solid $color--lightblue;
     border-radius: 0.25rem;
     font-family: $fontfamily--primary;
     font-size: $font--x-small;
@@ -67,11 +69,29 @@
   }
 
   .submit:hover {
-    border: 2px solid $color--lightblue;
     font-weight: 600;
+    box-shadow: rgba(157, 228, 246, 0.5) 0px 4px 4px,
+      rgba(157, 228, 246, 0.5) 0px -4px 4px,
+      rgba(157, 228, 246, 0.5) 4px 0px 4px,
+      rgba(157, 228, 246, 0.5) -4px 0px 4px;
   }
 
-  button {
+  .disabled {
+    padding: 8px 16px;
+    margin: 10px 0;
+    border: 1px solid $color--lightblue;
+    border-radius: 0.25rem;
+    font-family: $fontfamily--primary;
+    font-size: $font--x-small;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $color--lightblue;
+    background-color: $color--indigo;
+    cursor: not-allowed;
+  }
+
+  .menu-bar button {
     padding: 4px 4px;
     margin: 4px 2px;
     border: 1px solid $color--lightblue;
@@ -86,7 +106,7 @@
     cursor: pointer;
   }
 
-  button:hover {
+  .menu-bar button:hover {
     border: 1px solid $color--lightblue;
     box-shadow: rgba(157, 228, 246, 0.5) 0px 4px 4px,
       rgba(157, 228, 246, 0.5) 0px -4px 4px,
