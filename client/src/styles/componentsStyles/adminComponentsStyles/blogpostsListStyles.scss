@@ -3,16 +3,13 @@
 @import "../../partials/_imagesPartials.scss";
 
 .all-blogposts {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 45vw;
   min-width: 800px;
   height: 560px;
   padding: 0 50px 50px 50px;
   overflow: scroll;
 
-  .one-blogpost td {
+  .single-blogpost td {
     padding: 10px 8px;
   }
 
@@ -31,5 +28,9 @@
   a {
     color: $color--white;
     text-decoration: none;
+  }
+
+  svg {
+    cursor: pointer;
   }
 }

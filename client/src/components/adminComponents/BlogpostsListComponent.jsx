@@ -29,7 +29,8 @@ const BlogpostsListComponent = () => {
         {blogposts &&
           blogposts.map((item, index) => {
             return (
-              <tr className="one-blogpost" key={index}>
+              <tr className="single-blogpost" key={index}>
+                <td>{`${index + 1}. `}</td>
                 <td className="title">{item.title.slice(0, 60)}...</td>
                 <td className="date">{item.date}</td>
                 <td>

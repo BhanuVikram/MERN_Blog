@@ -7,6 +7,8 @@
 }
 
 .single-blogpost {
+  margin: 0px 400px;
+
   h1 {
     text-align: center;
     padding-bottom: 20px;
@@ -22,14 +24,14 @@
     padding-bottom: 40px;
   }
 
-  .blogpost-content {
-    margin: 0 100px 0px 100px;
+  p {
+    font-size: $font--large;
   }
-}
 
-ul,
-ol {
-  padding: 0 2rem;
+  ul,
+  ol {
+    padding: 0 2.5rem;
+  }
 }
 
 code {
