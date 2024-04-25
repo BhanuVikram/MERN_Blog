@@ -7,6 +7,7 @@ import { Color } from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
+import HardBreak from "@tiptap/extension-hard-break";
 import "../../styles/componentsStyles/adminComponentsStyles/createBlogpostStyles.scss";
 import { FiBold } from "react-icons/fi";
 import { FiUnderline } from "react-icons/fi";
@@ -14,7 +15,6 @@ import { FiItalic } from "react-icons/fi";
 import { GoStrikethrough } from "react-icons/go";
 import { LuRemoveFormatting } from "react-icons/lu";
 import { MdHorizontalRule } from "react-icons/md";
-import { BsParagraph } from "react-icons/bs";
 import { LuHeading1 } from "react-icons/lu";
 import { LuHeading2 } from "react-icons/lu";
 import { LuHeading3 } from "react-icons/lu";
@@ -24,13 +24,12 @@ import { LuHeading6 } from "react-icons/lu";
 import { PiListBulletsFill } from "react-icons/pi";
 import { MdFormatListNumbered } from "react-icons/md";
 import { FaCode } from "react-icons/fa6";
-import { BiCodeBlock } from "react-icons/bi";
+import { PiCodeBlockFill } from "react-icons/pi";
 import { GrBlockQuote } from "react-icons/gr";
 import { AiOutlineNodeCollapse } from "react-icons/ai";
 import { IoMdReturnLeft } from "react-icons/io";
 import { BiUndo } from "react-icons/bi";
 import { BiRedo } from "react-icons/bi";
-import { VscSymbolColor } from "react-icons/vsc";
 
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
@@ -99,15 +98,6 @@ const MenuBar = ({ editor }) => {
         }}
       >
         <AiOutlineNodeCollapse />
-      </button>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          editor.chain().focus().setParagraph().run();
-        }}
-        className={editor.isActive("paragraph") ? "is-active" : ""}
-      >
-        <BsParagraph />
       </button>
       <button
         onClick={(e) => {
@@ -181,25 +171,7 @@ const MenuBar = ({ editor }) => {
       >
         <MdFormatListNumbered />
       </button>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          editor.chain().focus().toggleCode().run();
-        }}
-        disabled={!editor.can().chain().focus().toggleCode().run()}
-        className={editor.isActive("code") ? "is-active" : ""}
-      >
-        <FaCode />
-      </button>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          editor.chain().focus().toggleCodeBlock().run();
-        }}
-        className={editor.isActive("codeBlock") ? "is-active" : ""}
-      >
-        <BiCodeBlock />
-      </button>
+
       <button
         onClick={(e) => {
           e.preventDefault();
@@ -216,14 +188,6 @@ const MenuBar = ({ editor }) => {
         }}
       >
         <MdHorizontalRule />
-      </button>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
-          editor.chain().focus().setHardBreak().run();
-        }}
-      >
-        <IoMdReturnLeft />
       </button>
       <button
         onClick={(e) => {
@@ -246,13 +210,29 @@ const MenuBar = ({ editor }) => {
       <button
         onClick={(e) => {
           e.preventDefault();
-          editor.chain().focus().setColor("#958DF1").run();
+          editor.chain().focus().toggleCode().run();
         }}
-        className={
-          editor.isActive("textStyle", { color: "#958DF1" }) ? "is-active" : ""
-        }
+        disabled={!editor.can().chain().focus().toggleCode().run()}
+        className={editor.isActive("code") ? "is-active" : ""}
       >
-        <VscSymbolColor />
+        <FaCode />
+      </button>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          editor.chain().focus().toggleCodeBlock().run();
+        }}
+        className={editor.isActive("codeBlock") ? "is-active" : ""}
+      >
+        <PiCodeBlockFill />
+      </button>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          editor.chain().focus().setHardBreak().run();
+        }}
+      >
+        <IoMdReturnLeft />
       </button>
     </div>
   );
@@ -272,6 +252,13 @@ const extensions = [
     },
   }),
   Underline,
+  HardBreak.extend({
+    addKeyboardShortcuts() {
+      return {
+        Enter: () => this.editor.commands.setHardBreak(),
+      };
+    },
+  }),
 ];
 
 const CreateBlogpostComponent = () => {
