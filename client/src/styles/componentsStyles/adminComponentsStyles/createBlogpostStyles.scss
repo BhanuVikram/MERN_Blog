@@ -29,7 +29,11 @@
   .blogpost-title #title {
     width: 100%;
     padding: 8px;
+    border: 1px solid $color--indigo;
+    border-radius: 0.25rem;
     font-family: $fontfamily--primary;
+    color: $color--light-gray;
+    background-color: $color--almost-black;
   }
 
   .blogpost-content {
@@ -129,8 +133,8 @@
   padding: 10px;
   border: 1px solid $color--indigo;
   border-radius: 0.25rem;
-  color: $color--black;
-  background-color: $color--aliceblue;
+  color: $color--light-gray;
+  background-color: $color--almost-black;
 }
 
 .tiptap {
@@ -151,8 +155,8 @@
   code {
     padding: 0 0.3rem;
     border-radius: 0.25rem;
-    color: $color--lightblue;
-    background-color: $color--almost-black;
+    color: $color--code-gray;
+    background-color: $color--black;
   }
 
   pre {
@@ -161,15 +165,15 @@
     border-radius: 0.25rem;
     border: 1px solid $color--indigo;
     font-family: "JetBrainsMono", monospace;
-    color: $color--lightblue;
-    background-color: $color--almost-black;
+    color: $color--code-gray;
+    background-color: $color--black;
 
     code {
       padding: 0;
       background: $color--almost-black;
       font-size: 0.8rem;
-      color: $color--lightblue;
-      background-color: $color--almost-black;
+      color: $color--code-gray;
+      background-color: $color--black;
     }
   }
 
