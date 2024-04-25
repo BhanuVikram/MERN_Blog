@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "../../styles/componentsStyles/adminComponentsStyles/blogpostsListStyles.scss";
 import { PiEyeLight } from "react-icons/pi";
 import { CiEdit } from "react-icons/ci";
@@ -29,10 +30,16 @@ const BlogpostsListComponent = () => {
           blogposts.map((item, index) => {
             return (
               <tr className="one-blogpost" key={index}>
-                <td className="title">{item.title}</td>
+                <td className="title">{item.title.slice(0, 60)}...</td>
                 <td className="date">{item.date}</td>
                 <td>
-                  <PiEyeLight />
+                  <Link
+                    to={item._id && `/blog/${item._id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <PiEyeLight />
+                  </Link>
                 </td>
                 <td>
                   <CiEdit />
