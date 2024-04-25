@@ -8,6 +8,29 @@ import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import "../../styles/componentsStyles/adminComponentsStyles/createBlogpostStyles.scss";
+import { FiBold } from "react-icons/fi";
+import { FiUnderline } from "react-icons/fi";
+import { FiItalic } from "react-icons/fi";
+import { GoStrikethrough } from "react-icons/go";
+import { LuRemoveFormatting } from "react-icons/lu";
+import { MdHorizontalRule } from "react-icons/md";
+import { BsParagraph } from "react-icons/bs";
+import { LuHeading1 } from "react-icons/lu";
+import { LuHeading2 } from "react-icons/lu";
+import { LuHeading3 } from "react-icons/lu";
+import { LuHeading4 } from "react-icons/lu";
+import { LuHeading5 } from "react-icons/lu";
+import { LuHeading6 } from "react-icons/lu";
+import { PiListBulletsFill } from "react-icons/pi";
+import { MdFormatListNumbered } from "react-icons/md";
+import { FaCode } from "react-icons/fa6";
+import { BiCodeBlock } from "react-icons/bi";
+import { GrBlockQuote } from "react-icons/gr";
+import { AiOutlineNodeCollapse } from "react-icons/ai";
+import { IoMdReturnLeft } from "react-icons/io";
+import { BiUndo } from "react-icons/bi";
+import { BiRedo } from "react-icons/bi";
+import { VscSymbolColor } from "react-icons/vsc";
 
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
@@ -29,7 +52,7 @@ const MenuBar = ({ editor }) => {
         disabled={!editor.can().chain().focus().toggleBold().run()}
         className={editor.isActive("bold") ? "is-active" : ""}
       >
-        bold
+        <FiBold />
       </button>
       <button
         onClick={(e) => {
@@ -39,7 +62,7 @@ const MenuBar = ({ editor }) => {
         disabled={!editor.can().chain().focus().toggleUnderline().run()}
         className={editor.isActive("underline") ? "is-active" : ""}
       >
-        underline
+        <FiUnderline />
       </button>
       <button
         onClick={(e) => {
@@ -49,7 +72,7 @@ const MenuBar = ({ editor }) => {
         disabled={!editor.can().chain().focus().toggleItalic().run()}
         className={editor.isActive("italic") ? "is-active" : ""}
       >
-        italic
+        <FiItalic />
       </button>
       <button
         onClick={(e) => {
@@ -59,7 +82,7 @@ const MenuBar = ({ editor }) => {
         disabled={!editor.can().chain().focus().toggleStrike().run()}
         className={editor.isActive("strike") ? "is-active" : ""}
       >
-        strike
+        <GoStrikethrough />
       </button>
       <button
         onClick={(e) => {
@@ -67,7 +90,7 @@ const MenuBar = ({ editor }) => {
           editor.chain().focus().unsetAllMarks().run();
         }}
       >
-        clear marks
+        <LuRemoveFormatting />
       </button>
       <button
         onClick={(e) => {
@@ -75,7 +98,7 @@ const MenuBar = ({ editor }) => {
           editor.chain().focus().clearNodes().run();
         }}
       >
-        clear nodes
+        <AiOutlineNodeCollapse />
       </button>
       <button
         onClick={(e) => {
@@ -84,7 +107,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("paragraph") ? "is-active" : ""}
       >
-        paragraph
+        <BsParagraph />
       </button>
       <button
         onClick={(e) => {
@@ -93,7 +116,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("heading", { level: 1 }) ? "is-active" : ""}
       >
-        h1
+        <LuHeading1 />
       </button>
       <button
         onClick={(e) => {
@@ -102,7 +125,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("heading", { level: 2 }) ? "is-active" : ""}
       >
-        h2
+        <LuHeading2 />
       </button>
       <button
         onClick={(e) => {
@@ -111,7 +134,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("heading", { level: 3 }) ? "is-active" : ""}
       >
-        h3
+        <LuHeading3 />
       </button>
       <button
         onClick={(e) => {
@@ -120,7 +143,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("heading", { level: 4 }) ? "is-active" : ""}
       >
-        h4
+        <LuHeading4 />
       </button>
       <button
         onClick={(e) => {
@@ -129,7 +152,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("heading", { level: 5 }) ? "is-active" : ""}
       >
-        h5
+        <LuHeading5 />
       </button>
       <button
         onClick={(e) => {
@@ -138,7 +161,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("heading", { level: 6 }) ? "is-active" : ""}
       >
-        h6
+        <LuHeading6 />
       </button>
       <button
         onClick={(e) => {
@@ -147,7 +170,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("bulletList") ? "is-active" : ""}
       >
-        bullet list
+        <PiListBulletsFill />
       </button>
       <button
         onClick={(e) => {
@@ -156,7 +179,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("orderedList") ? "is-active" : ""}
       >
-        ordered list
+        <MdFormatListNumbered />
       </button>
       <button
         onClick={(e) => {
@@ -166,7 +189,7 @@ const MenuBar = ({ editor }) => {
         disabled={!editor.can().chain().focus().toggleCode().run()}
         className={editor.isActive("code") ? "is-active" : ""}
       >
-        code
+        <FaCode />
       </button>
       <button
         onClick={(e) => {
@@ -175,7 +198,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("codeBlock") ? "is-active" : ""}
       >
-        code block
+        <BiCodeBlock />
       </button>
       <button
         onClick={(e) => {
@@ -184,7 +207,7 @@ const MenuBar = ({ editor }) => {
         }}
         className={editor.isActive("blockquote") ? "is-active" : ""}
       >
-        blockquote
+        <GrBlockQuote />
       </button>
       <button
         onClick={(e) => {
@@ -192,7 +215,7 @@ const MenuBar = ({ editor }) => {
           editor.chain().focus().setHorizontalRule().run();
         }}
       >
-        horizontal rule
+        <MdHorizontalRule />
       </button>
       <button
         onClick={(e) => {
@@ -200,7 +223,7 @@ const MenuBar = ({ editor }) => {
           editor.chain().focus().setHardBreak().run();
         }}
       >
-        hard break
+        <IoMdReturnLeft />
       </button>
       <button
         onClick={(e) => {
@@ -209,7 +232,7 @@ const MenuBar = ({ editor }) => {
         }}
         disabled={!editor.can().chain().focus().undo().run()}
       >
-        undo
+        <BiUndo />
       </button>
       <button
         onClick={(e) => {
@@ -218,7 +241,7 @@ const MenuBar = ({ editor }) => {
         }}
         disabled={!editor.can().chain().focus().redo().run()}
       >
-        redo
+        <BiRedo />
       </button>
       <button
         onClick={(e) => {
@@ -229,7 +252,7 @@ const MenuBar = ({ editor }) => {
           editor.isActive("textStyle", { color: "#958DF1" }) ? "is-active" : ""
         }
       >
-        purple
+        <VscSymbolColor />
       </button>
     </div>
   );
@@ -324,7 +347,7 @@ const CreateBlogpostComponent = () => {
             />
             {!isTitle && (
               <div className="error-message">
-                Title must be between 2 and 120 characters!
+                * Title must be between 2 and 120 characters!
               </div>
             )}
           </div>
@@ -344,7 +367,7 @@ const CreateBlogpostComponent = () => {
             </div>
             {!isContent && (
               <div className="error-message">
-                Content must be between 100 and 100,000 characters!
+                * Content must be between 100 and 100,000 characters!
               </div>
             )}
           </div>
