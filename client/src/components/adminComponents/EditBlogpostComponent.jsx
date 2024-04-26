@@ -261,11 +261,14 @@ const extensions = [
   }),
 ];
 
-const EditBlogpostComponent = ({ _id }) => {
+const EditBlogpostComponent = ({ toggle }) => {
+  const _id = "";
+
   const [title, setTitle] = useState("");
   const [editorContent, setEditorContent] = useState("");
   const [isTitle, setIsTitle] = useState(false);
   const [isContent, setIsContent] = useState(false);
+  const [editToggle, setEditToggle] = useState(toggle);
 
   const editor = useEditor({
     editorProps: {
