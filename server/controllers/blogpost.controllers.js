@@ -99,7 +99,7 @@ exports.getSingleBlogpost = async (req, res, next) => {
       singleBlogpost,
       message: "Got the blogpost!",
     });
-  } catch (error) {
+  } catch (err) {
     console.log(err);
     res.status(500).json({
       succes: false,

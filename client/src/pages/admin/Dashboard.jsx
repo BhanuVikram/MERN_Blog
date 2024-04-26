@@ -10,16 +10,16 @@ const Dashboard = () => {
       <h1>Admin Dashboard</h1>
       <div className="sub-headings">
         <div>
-          <h1>New Blogpost</h1>
+          <h1>Edit Blogpost</h1>
         </div>
         <div>
           <h1>All Blogposts</h1>
         </div>
       </div>
       <div className="dashboard-components">
-        <CreateBlogpostComponent />
+        {/* <CreateBlogpostComponent /> */}
+        <EditBlogpostComponent />
         <BlogpostsListComponent />
-        {/* <EditBlogpostComponent /> */}
       </div>
     </div>
   );

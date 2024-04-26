@@ -2,11 +2,8 @@
 @import "../../partials/_fontsPartials.scss";
 @import "../../partials/_imagesPartials.scss";
 
-* {
-  color: $color--light-gray;
-}
-
 .single-blogpost {
+  color: $color--indigo;
   margin: 0px 400px;
 
   h1 {
@@ -39,6 +36,6 @@ code {
   padding: 4px 8px;
   display: inline-flex;
   border-radius: 8px;
-  color: $color--code-gray;
+  color: $color--indigo;
   background-color: $color--black;
 }
