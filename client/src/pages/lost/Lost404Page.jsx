@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/pagesStyles/lostPagesStyles/404pageStyles.scss";
+import "../../styles/pagesStyles/lostPagesStyles/404PageStyles.scss";
 
 const Page_404 = () => {
   return <div>Page_404</div>;

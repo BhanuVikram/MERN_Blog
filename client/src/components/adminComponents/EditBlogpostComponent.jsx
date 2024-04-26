@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { EditorProvider, EditorContent, useEditor } from "@tiptap/react";
 import { Formik, Field, Form } from "formik";
 import axios from "axios";
@@ -8,7 +8,7 @@ import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import HardBreak from "@tiptap/extension-hard-break";
-import "../../styles/componentsStyles/adminComponentsStyles/createBlogpostStyles.scss";
+import "../../styles/componentsStyles/adminComponentsStyles/createBlogpostComponentStyles.scss";
 import { FiBold } from "react-icons/fi";
 import { FiUnderline } from "react-icons/fi";
 import { FiItalic } from "react-icons/fi";
@@ -30,6 +30,7 @@ import { AiOutlineNodeCollapse } from "react-icons/ai";
 import { IoMdReturnLeft } from "react-icons/io";
 import { BiUndo } from "react-icons/bi";
 import { BiRedo } from "react-icons/bi";
+import EditBlogpostContext from "../../context/editBlogpostContext";
 
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
@@ -262,13 +263,42 @@ const extensions = [
 ];
 
 const EditBlogpostComponent = ({ toggle }) => {
-  const _id = "";
-
+  const { blogpostId, setBlogpostId } = useContext(EditBlogpostContext);
+  const [singleBlogpost, setSingleBlogpost] = useState({});
   const [title, setTitle] = useState("");
   const [editorContent, setEditorContent] = useState("");
   const [isTitle, setIsTitle] = useState(false);
   const [isContent, setIsContent] = useState(false);
-  const [editToggle, setEditToggle] = useState(toggle);
+
+  useEffect(() => {
+    setIsTitle(title && title.length > 1 && title.length < 121);
+  }, [title]);
+
+  useEffect(() => {
+    setIsContent(
+      editorContent &&
+        editorContent.length > 99 &&
+        editorContent.length < 100001
+    );
+  }, [editorContent]);
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8000/api/v1/getsingleblogpost/${blogpostId}`)
+      .then((res) => setSingleBlogpost(res.data.singleBlogpost))
+      .catch((err) => console.log(err));
+  }, [axios]);
+
+  useEffect(() => {
+    if (singleBlogpost) {
+      setTitle(singleBlogpost.title || "");
+      setEditorContent(singleBlogpost.content || "");
+    }
+  }, [singleBlogpost]);
+
+  useEffect(() => {
+    console.log("Editor content updated:", editorContent);
+  }, [editorContent]);
 
   const editor = useEditor({
     editorProps: {
@@ -277,47 +307,34 @@ const EditBlogpostComponent = ({ toggle }) => {
       },
     },
     extensions,
-    content: editorContent,
-    onUpdate: ({ editor }) => {
-      setEditorContent(editor.getHTML());
-    },
+    content: editorContent && editorContent,
+    // onUpdate: ({ editor }) => {
+    //   setEditorContent(editor.getHTML());
+    // },
   });
 
   useEffect(() => {
-    setIsTitle(title.length > 1 && title.length < 121);
-  }, [title]);
-
-  useEffect(() => {
-    setIsContent(editorContent.length > 99 && editorContent.length < 100001);
-  }, [editorContent]);
-
-  const [singleBlogpost, setSingleBlogpost] = useState({});
-
-  useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/v1/getsingleblogpost/${_id}`)
-      .then((res) => setSingleBlogpost(res.data.singleBlogpost))
-      .catch((err) => console.log(err));
-  }, [axios]);
+    if (editor) {
+      setEditorContent(editor.getHTML());
+    }
+  }, [editor]);
 
   return (
     <div>
       <Formik
         initialValues={{
-          title: "",
-          content: "",
+          title: title || "Enter title here...",
+          content: editorContent || "Enter content here...",
         }}
         onSubmit={(values) => {
           const updatedValues = {
             ...values,
-            title,
-            content: editorContent,
           };
 
           if (isTitle && isContent) {
             axios
               .put(
-                `http://localhost:8000/api/v1/updateblogpost/${_id}`,
+                `http://localhost:8000/api/v1/updateblogpost/${blogpostId}`,
                 updatedValues,
                 {
                   headers,

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/componentsStyles/userComponentsStyles/singleBlogpostStyles.scss";
+import "../../styles/componentsStyles/userComponentsStyles/singleBlogpostComponentStyles.scss";
 import { Link } from "react-router-dom";
 import Parser from "html-react-parser";
 
 const SingleBlogpostComponent = ({ _id, title, author, date, content }) => {
   return (
-    <div className="single-blogpost">
+    <div className="single-blogpost-component">
       <div className="author-date">
         <h3 className="author">{author}</h3>
         <h5 className="date">{date}</h5>

@@ -5,12 +5,12 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 // * PAGES IMPORT
 import Home from "./pages/user/Home";
-import Blogpost from "./pages/user/SingleBlogpost";
-import Dashboard from "./pages/admin/Dashboard";
-import SignIn from "./pages/auth/SignIn";
-import SignUp from "./pages/auth/SignUp";
-import Page_404 from "./pages/lost/Page_404";
-import Page_500 from "./pages/lost/Page_500";
+import Blogpost from "./pages/user/SingleBlogpostPage";
+import Dashboard from "./pages/admin/DashboardPage";
+import SignIn from "./pages/auth/SignInPage";
+import SignUp from "./pages/auth/SignUpPage";
+import Page_404 from "./pages/lost/Lost404Page";
+import Page_500 from "./pages/lost/Lost500Page";
 
 // * LAYOUTS IMPORT
 import MainLayout from "./layouts/MainLayout";

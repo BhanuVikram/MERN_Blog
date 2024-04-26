@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import CreateBlogpostComponent from "../../components/adminComponents/CreateBlogpostComponent";
 import EditBlogpostComponent from "../../components/adminComponents/EditBlogpostComponent";
 import BlogpostsListComponent from "../../components/adminComponents/BlogpostsListComponent";
-import "../../styles/pagesStyles/adminPagesStyles/dashboardStyles.scss";
+import "../../styles/pagesStyles/adminPagesStyles/dashboardPageStyles.scss";
 import EditBlogpostContext from "../../context/editBlogpostContext";
 
 const Dashboard = () => {

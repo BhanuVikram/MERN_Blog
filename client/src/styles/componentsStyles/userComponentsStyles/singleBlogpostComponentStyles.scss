@@ -2,14 +2,14 @@
 @import "../../partials/_fontsPartials.scss";
 @import "../../partials/_imagesPartials.scss";
 
-.single-blogpost {
+.single-blogpost-component {
   position: relative;
   padding: 50px;
+  font-family: $fontfamily--primary;
   color: $color--aliceblue;
 
   .author-date {
     display: flex;
-    align-items: center;
     justify-content: space-between;
   }
 
@@ -29,13 +29,15 @@
   }
 
   .title {
-    padding: 25px 0;
+    padding: 30px 0;
     min-height: 150px;
   }
 
   .content {
+    height: 430px;
+    font-size: $font--medium;
     text-align: justify;
-    height: 400px;
+    line-height: 1.6rem;
     overflow: hidden;
   }
 

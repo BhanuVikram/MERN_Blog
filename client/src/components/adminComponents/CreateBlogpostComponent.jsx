@@ -8,7 +8,7 @@ import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import HardBreak from "@tiptap/extension-hard-break";
-import "../../styles/componentsStyles/adminComponentsStyles/createBlogpostStyles.scss";
+import "../../styles/componentsStyles/adminComponentsStyles/createBlogpostComponentStyles.scss";
 import { FiBold } from "react-icons/fi";
 import { FiUnderline } from "react-icons/fi";
 import { FiItalic } from "react-icons/fi";

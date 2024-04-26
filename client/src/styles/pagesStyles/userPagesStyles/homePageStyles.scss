@@ -11,14 +11,14 @@
     width: 100vw;
   }
 
-  .single-blogpost {
+  .single-blogpost-component {
     width: 27%;
     margin: 2%;
-    height: 575px;
+    height: 770px;
     box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.35);
   }
 
-  .single-blogpost:hover {
+  .single-blogpost-component:hover {
     box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.35);
   }
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import "../../styles/pagesStyles/userPagesStyles/singleBlogpostStyles.scss";
+import "../../styles/pagesStyles/userPagesStyles/singleBlogpostPageStyles.scss";
 import Parser from "html-react-parser";
 
 const Blogpost = () => {
@@ -17,15 +17,15 @@ const Blogpost = () => {
   }, [axios]);
 
   return (
-    <div className="single-blogpost">
-      <h1>{singleBlogpost && singleBlogpost.title}</h1>
-      <h4>
+    <div className="single-blogpost-page">
+      <h1 className="title">{singleBlogpost && singleBlogpost.title}</h1>
+      <h4 className="author">
         Author:{" "}
         {singleBlogpost &&
           singleBlogpost.author &&
           singleBlogpost.author.username}
       </h4>
-      <h5>Date: {singleBlogpost && singleBlogpost.date}</h5>
+      <h5 className="date">Date: {singleBlogpost && singleBlogpost.date}</h5>
 
       {singleBlogpost &&
         singleBlogpost.content &&

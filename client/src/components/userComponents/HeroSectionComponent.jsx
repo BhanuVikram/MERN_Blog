@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/componentsStyles/userComponentsStyles/heroSectionStyles.scss";
+import "../../styles/componentsStyles/userComponentsStyles/heroSectionComponentStyles.scss";
 import heroBanner from "../../assets/images/Hero_Section_Banner.png";
 
 const HeroSectionComponent = () => {

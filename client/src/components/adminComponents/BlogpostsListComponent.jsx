@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import "../../styles/componentsStyles/adminComponentsStyles/blogpostsListStyles.scss";
+import "../../styles/componentsStyles/adminComponentsStyles/blogpostsListComponentStyles.scss";
 import { PiEyeLight } from "react-icons/pi";
 import { CiEdit } from "react-icons/ci";
 import { CiTrash } from "react-icons/ci";
@@ -13,7 +13,8 @@ const headers = {
 };
 
 const BlogpostsListComponent = () => {
-  const { editToggle, setEditToggle } = useContext(EditBlogpostContext);
+  const { editToggle, setEditToggle, blogpostId, setBlogpostId } =
+    useContext(EditBlogpostContext);
   const [blogposts, setBlogposts] = useState([]);
 
   useEffect(() => {
@@ -47,6 +48,7 @@ const BlogpostsListComponent = () => {
                 <td>
                   <CiEdit
                     onClick={() => {
+                      setBlogpostId(item._id);
                       setEditToggle(!editToggle);
                     }}
                   />
