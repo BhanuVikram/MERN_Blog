@@ -1,0 +1,77 @@
+@import "../../partials/_colorsPartials.scss";
+@import "../../partials/_fontsPartials.scss";
+@import "../../partials/_imagesPartials.scss";
+
+.auth-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: $fontfamily--secondary;
+  background-color: $color--almost-black;
+}
+
+.auth-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 75px;
+  margin: auto;
+  border: 1px solid $color--indigo;
+  border-radius: 2rem;
+  box-shadow: rgba(194, 196, 254, 0.35) 0px 5px 20px;
+
+  label {
+    display: block;
+    margin-top: 16px;
+    padding: 12px 0 6px 0;
+    font-size: $font--large;
+    font-weight: 300;
+    color: $color--lightblue;
+  }
+
+  .field {
+    min-width: 400px;
+    padding: 8px;
+    border: 1px solid $color--indigo;
+    border-radius: 4px;
+    font-size: $font--medium;
+    caret-color: $color--indigo;
+    color: $color--indigo;
+    background-color: $color--almost-black;
+  }
+
+  ::placeholder {
+    color: $color--gray;
+  }
+
+  .field:focus {
+    outline: none;
+  }
+
+  .error-message {
+    text-align: right;
+    margin-top: 4px;
+    font-size: $font--small;
+    font-weight: 200;
+    color: $color--lightblue;
+  }
+
+  button {
+    justify-content: center;
+    display: block;
+    margin: 40px auto 10px auto;
+    padding: 12px 30px;
+    border: 1px solid $color--indigo;
+    border-radius: 0.5rem;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    font-size: $font--medium;
+    background-color: $color--almost-black;
+    color: $color--lightblue;
+  }
+
+  button:focus {
+    outline: 1px solid $color--indigo;
+  }
+}
