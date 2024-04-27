@@ -15,27 +15,87 @@
     margin: 30px 40px 35px 40px;
   }
 
-  button {
-    padding: 14px 28px;
-    margin: 15px 20px;
-    border: 2px solid $color--lightblue;
+  .auth-buttons {
+    padding: 10px 20px;
+    margin: 15px;
+    border: 1px solid $color--lightblue;
     border-radius: 8px;
     font-family: $fontfamily--primary;
-    font-size: $font--large;
+    font-size: $font--medium;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: $color--lightblue;
     background-color: $color--indigo;
+    cursor: pointer;
   }
 
-  button:nth-child(2) {
+  .sign-up-button {
     margin-right: 40px;
   }
 
-  button:hover {
-    border: 2px solid $color--lightblue;
+  .auth-buttons:hover {
     border-radius: 25px;
     font-weight: 600;
+  }
+
+  .username {
+    padding: 4px 10px;
+    margin-right: 100px;
+    border-radius: 4px;
+    color: $color--diff-blue;
+    cursor: pointer;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropbtn {
+    padding: 6px 12px;
+    border: 1px solid $color--diff-blue;
+    border-radius: 0.5rem;
+    font-family: $fontfamily--primary;
+    font-size: $font--x-large;
+    font-weight: 300;
+    color: $color--diff-blue;
+    background-color: $color--almost-black;
+    cursor: pointer;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: $color--almost-black;
+    z-index: 1;
+    transition: display 0.2s ease-in-out;
+  }
+
+  .dropdown-content button {
+    display: block;
+    padding: 4px 8px;
+    text-decoration: none;
+    border: 1px solid $color--diff-blue;
+    border-radius: 0.4rem;
+    font-family: $fontfamily--primary;
+    font-size: $font--x-small;
+    font-weight: 300;
+    color: $color--lightblue;
+    background-color: $color--indigo;
+    cursor: pointer;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 2px;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: $color--almost-black;
   }
 }
