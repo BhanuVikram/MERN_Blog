@@ -36,6 +36,10 @@
     background-color: $color--almost-black;
   }
 
+  .blogpost-title #title:focus {
+    outline: none;
+  }
+
   .blogpost-content {
     display: block;
     padding-bottom: 20px;
@@ -135,6 +139,10 @@
   border-radius: 0.25rem;
   color: $color--light-gray;
   background-color: $color--almost-black;
+}
+
+.editor-content:focus {
+  outline: none;
 }
 
 .tiptap {

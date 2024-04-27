@@ -24,6 +24,7 @@
   }
 
   p {
+    text-align: justify;
     font-size: $font--medium;
     line-height: 1.8rem;
   }
@@ -36,7 +37,6 @@
 
 code {
   padding: 0px 6px;
-  margin: 0.5rem 0 0.5rem 3rem;
   display: inline-flex;
   border-radius: 0.3rem;
   font-size: $font--small;
@@ -44,4 +44,13 @@ code {
   line-height: 1.6rem;
   background-color: $color--black;
   color: $color--light-indigo;
+}
+
+.code-block {
+  margin: 0.5rem 3rem 0.5rem 3rem;
+  text-wrap: wrap;
+}
+
+.inline-code {
+  margin: 0.5rem 0 0.5rem 0;
 }
