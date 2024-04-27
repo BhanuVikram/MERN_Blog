@@ -17,6 +17,29 @@ import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayout";
 
 const App = () => {
+  const accessToken = localStorage.getItem("accessToken");
+  const [user, setUser] = useState("");
+
+  const headers = {
+    Authorization: `Brearer ${accessToken}`,
+  };
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const res = await fetch(`http://localhost:8000/api/v1/me`, { headers });
+        const user = await res.json();
+        setUser(user);
+      } catch (err) {
+        console.log(`Error fetching user data: ${err}`);
+      }
+    };
+    fetchUser();
+  }, []);
+
+  console.log(headers);
+  console.log(user);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -41,7 +64,9 @@ const App = () => {
           path="/dashboard"
           element={
             <MainLayout>
-              <Dashboard />
+              {user.user && user.user.role && user.user.role === "admin" && (
+                <Dashboard />
+              )}
             </MainLayout>
           }
         />

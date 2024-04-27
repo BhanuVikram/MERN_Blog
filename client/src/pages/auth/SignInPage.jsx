@@ -37,6 +37,7 @@ const SignIn = () => {
                   res.data.user.role === "admin"
                 ) {
                   navigate("/dashboard");
+                  window.location.reload();
                 }
               })
               .catch((err) => {
