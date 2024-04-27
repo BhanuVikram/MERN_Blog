@@ -1,8 +1,19 @@
 const express = require("express");
 
+// * MIDDLEWARES IMPORT
+
+const {
+  isAuthenticated,
+  isAuthorized,
+} = require("../middlewares/auth.middlerwares");
+
 // * CONTROLLERS IMPORT
 
-const { signUp, signIn } = require("../controllers/user.controllers.js");
+const {
+  signUp,
+  signIn,
+  myProfile,
+} = require("../controllers/user.controllers.js");
 
 const router = express.Router();
 
@@ -10,5 +21,6 @@ const router = express.Router();
 
 router.route("/signup").post(signUp);
 router.route("/signin").post(signIn);
+router.route("/me").get(isAuthenticated, myProfile);
 
 module.exports = router;

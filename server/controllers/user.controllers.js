@@ -21,13 +21,13 @@ exports.signUp = async (req, res, next) => {
       success: true,
       newUser,
       token,
-      message: "Sign Up Successful!!!",
+      message: "Sign up successful!!!",
     });
   } catch (err) {
     console.log(err);
     res.status(500).json({
       success: false,
-      message: `Sign Up Failed. The error is ${err.message}`,
+      message: `Sign up failed. The error is ${err.message}`,
     });
   }
 };
@@ -41,7 +41,7 @@ exports.signIn = async (req, res, next) => {
     if (!username || !password) {
       return res.status(404).json({
         success: false,
-        message: "Username and Password fields cannot be empty",
+        message: "Username and password fields cannot be empty",
       });
     }
 
@@ -76,7 +76,29 @@ exports.signIn = async (req, res, next) => {
     console.log(err);
     res.status(500).json({
       succes: false,
-      message: `Log In Error: ${err.message}`,
+      message: `Log in error: ${err.message}`,
+    });
+  }
+};
+
+// * MY PROFILE
+
+exports.myProfile = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user).populate(
+      "firstname lastname username email role"
+    );
+    console.log(`My Profile: ${user}`);
+    res.status(200).json({
+      success: true,
+      user,
+      message: "User profile fetched successfully!",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      succes: false,
+      message: `User profile error: ${err.message}`,
     });
   }
 };
