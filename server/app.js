@@ -2,6 +2,7 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const app = express();
 const cors = require("cors");
+const errorMiddlewares = require("./middlewares/error.middlewares");
 
 // * CORS
 
@@ -30,5 +31,7 @@ const createBlogpost = require("./routes/blogpost.routes");
 
 app.use("/api/v1", signUp);
 app.use("/api/v1", createBlogpost);
+
+app.use(errorMiddlewares);
 
 module.exports = app;
