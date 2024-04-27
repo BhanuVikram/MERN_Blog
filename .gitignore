@@ -3,6 +3,7 @@ dist
 dist-ssr
 *.local
 notes.js
+notes.scss
 
 # Editor directories and files
 .vscode/*

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import axios from "axios";
@@ -17,6 +18,8 @@ const SignUpSchema = Yup.object().shape({
 });
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="auth-form-container">
       <div className="auth-form">
@@ -35,9 +38,26 @@ const SignUp = () => {
               .post(`http://localhost:8000/api/v1/signup`, values)
               .then((res) => {
                 console.log(res.message);
+                navigate("/signin");
               })
               .catch((err) => {
-                console.log(res.error);
+                console.log(err);
+                if (err.response) {
+                  // The request was made and the server responded with a status code
+                  // that falls out of the range of 2xx
+                  console.log(err.response.data);
+                  console.log(err.response.status);
+                  console.log(err.response.headers);
+                  alert(err.response.data.message || "An error occurred");
+                } else if (err.request) {
+                  // The request was made but no response was received
+                  console.log(err.request);
+                  alert("No response was received");
+                } else {
+                  // Something happened in setting up the request that triggered an Error
+                  console.log("Error", err.message);
+                  alert(err.message);
+                }
               });
           }}
         >
@@ -51,7 +71,11 @@ const SignUp = () => {
               placeholder="John"
               autoComplete="off"
             />
-            <ErrorMessage name="firstname" component={"div"} className="error-message"/>
+            <ErrorMessage
+              name="firstname"
+              component={"div"}
+              className="error-message"
+            />
 
             <label htmlFor="lastname">Last Name</label>
             <Field
@@ -62,7 +86,11 @@ const SignUp = () => {
               placeholder="Doe"
               autoComplete="off"
             />
-            <ErrorMessage name="lastname" component={"div"} className="error-message"/>
+            <ErrorMessage
+              name="lastname"
+              component={"div"}
+              className="error-message"
+            />
 
             <label htmlFor="username">Username</label>
             <Field
@@ -73,7 +101,11 @@ const SignUp = () => {
               placeholder="johndoe"
               autoComplete="off"
             />
-            <ErrorMessage name="username" component={"div"} className="error-message"/>
+            <ErrorMessage
+              name="username"
+              component={"div"}
+              className="error-message"
+            />
 
             <label htmlFor="email">Email</label>
             <Field
@@ -84,7 +116,11 @@ const SignUp = () => {
               placeholder="abc@xyz.com"
               autoComplete="off"
             />
-            <ErrorMessage name="email" component={"div"} className="error-message"/>
+            <ErrorMessage
+              name="email"
+              component={"div"}
+              className="error-message"
+            />
 
             <label htmlFor="password">Password</label>
             <Field
@@ -95,7 +131,11 @@ const SignUp = () => {
               placeholder="********"
               autoComplete="off"
             />
-            <ErrorMessage name="password" component={"div"} className="error-message"/>
+            <ErrorMessage
+              name="password"
+              component={"div"}
+              className="error-message"
+            />
 
             <button type="submit">Sign Up</button>
           </Form>

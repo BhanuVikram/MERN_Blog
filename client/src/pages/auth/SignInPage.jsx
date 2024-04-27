@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import axios from "axios";
@@ -10,6 +11,8 @@ const SignInSchema = Yup.object().shape({
 });
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="auth-form-container">
       <div className="auth-form">
@@ -26,9 +29,34 @@ const SignIn = () => {
               .then((res) => {
                 console.log(res.message);
                 localStorage.setItem("accessToken", res.data.token);
+                localStorage.setItem("username", res.data.user.username);
+                if (res.data.user.role && res.data.user.role === "user") {
+                  navigate("/");
+                } else if (
+                  res.data.user.role &&
+                  res.data.user.role === "admin"
+                ) {
+                  navigate("/dashboard");
+                }
               })
               .catch((err) => {
-                console.log(res.error);
+                console.log(err);
+                if (err.response) {
+                  // The request was made and the server responded with a status code
+                  // that falls out of the range of 2xx
+                  console.log(err.response.data);
+                  console.log(err.response.status);
+                  console.log(err.response.headers);
+                  alert(err.response.data.message || "An error occurred");
+                } else if (err.request) {
+                  // The request was made but no response was received
+                  console.log(err.request);
+                  alert("No response was received");
+                } else {
+                  // Something happened in setting up the request that triggered an Error
+                  console.log("Error", err.message);
+                  alert(err.message);
+                }
               });
           }}
         >
