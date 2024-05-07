@@ -14,7 +14,6 @@ import Page_500 from "./pages/lost/Lost500Page";
 
 // * LAYOUTS IMPORT
 import MainLayout from "./layouts/MainLayout";
-import AuthLayout from "./layouts/AuthLayout";
 
 const App = () => {
   const accessToken = localStorage.getItem("accessToken");
@@ -36,9 +35,6 @@ const App = () => {
     };
     fetchUser();
   }, []);
-
-  console.log(headers);
-  console.log(user);
 
   return (
     <BrowserRouter>
@@ -73,17 +69,17 @@ const App = () => {
         <Route
           path="/signin"
           element={
-            <AuthLayout>
+            <MainLayout>
               <SignIn />
-            </AuthLayout>
+            </MainLayout>
           }
         />
         <Route
           path="/signup"
           element={
-            <AuthLayout>
+            <MainLayout>
               <SignUp />
-            </AuthLayout>
+            </MainLayout>
           }
         />
         <Route path="/404" element={<Page_404 />} />
