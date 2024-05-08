@@ -28,11 +28,11 @@ exports.isAuthenticated = async (req, res, next) => {
     req.user = await User.findById(decoded._id);
     console.log("req.user:", req.user);
     next();
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res.status(500).json({
       success: false,
-      message: `Error: ${err.message}`,
+      message: `Error: ${error.message}`,
     });
   }
 };

@@ -29,8 +29,8 @@ const App = () => {
         const res = await fetch(`http://localhost:8000/api/v1/me`, { headers });
         const data = await res.json();
         setUser(data.user);
-      } catch (err) {
-        console.log(`Error fetching user data: ${err}`);
+      } catch (error) {
+        console.log(`Error fetching user data: ${error}`);
       }
     };
     fetchUser();

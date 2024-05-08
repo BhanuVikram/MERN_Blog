@@ -9,8 +9,8 @@ const connectDB = () => {
     .then((con) => {
       console.log(`Connected to database: ${con.connection.host}`);
     })
-    .catch((err) => {
-      console.log(`Cannot connect to database: ${err}`);
+    .catch((error) => {
+      console.log(`Cannot connect to database: ${error}`);
     });
 };
 

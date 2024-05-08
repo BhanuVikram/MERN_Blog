@@ -13,7 +13,7 @@ const Blogpost = () => {
     axios
       .get(`http://localhost:8000/api/v1/getsingleblogpost/${_id}`)
       .then((res) => setSingleBlogpost(res.data.singleBlogpost))
-      .catch((err) => console.log(err));
+      .catch((error) => console.log(error));
   }, [axios]);
 
   if (accessToken) {

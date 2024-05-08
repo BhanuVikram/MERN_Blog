@@ -23,11 +23,11 @@ exports.signUp = async (req, res, next) => {
       token,
       message: "Sign up successful!!!",
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res.status(500).json({
       success: false,
-      message: `Sign up failed. The error is ${err.message}`,
+      message: `Sign up failed. The error is ${error.message}`,
     });
   }
 };
@@ -73,11 +73,11 @@ exports.signIn = async (req, res, next) => {
       message: "Log in successful!",
       expires: process.env.JWT_EXPIRE,
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res.status(500).json({
       succes: false,
-      message: `Log in error: ${err.message}`,
+      message: `Log in error: ${error.message}`,
     });
   }
 };
@@ -95,11 +95,11 @@ exports.myProfile = async (req, res, next) => {
       user,
       message: "User profile fetched successfully!",
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res.status(500).json({
       succes: false,
-      message: `User profile error: ${err.message}`,
+      message: `User profile error: ${error.message}`,
     });
   }
 };

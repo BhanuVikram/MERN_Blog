@@ -327,8 +327,8 @@ const CreateBlogpostComponent = () => {
                 console.log(res.message);
                 window.location.reload();
               })
-              .catch((err) => {
-                console.log(res.error);
+              .catch((error) => {
+                console.log(error.message);
               });
           }
         }}

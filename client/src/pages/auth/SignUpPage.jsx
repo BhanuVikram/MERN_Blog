@@ -40,23 +40,23 @@ const SignUp = () => {
                 console.log(res.message);
                 navigate("/signin");
               })
-              .catch((err) => {
-                console.log(err);
-                if (err.response) {
+              .catch((error) => {
+                console.log(error);
+                if (error.response) {
                   // The request was made and the server responded with a status code
                   // that falls out of the range of 2xx
-                  console.log(err.response.data);
-                  console.log(err.response.status);
-                  console.log(err.response.headers);
-                  alert(err.response.data.message || "An error occurred");
-                } else if (err.request) {
+                  console.log(error.response.data);
+                  console.log(error.response.status);
+                  console.log(error.response.headers);
+                  alert(error.response.data.message || "An error occurred");
+                } else if (error.request) {
                   // The request was made but no response was received
-                  console.log(err.request);
+                  console.log(error.request);
                   alert("No response was received");
                 } else {
                   // Something happened in setting up the request that triggered an Error
-                  console.log("Error", err.message);
-                  alert(err.message);
+                  console.log("Error", error.message);
+                  alert(error.message);
                 }
               });
           }}

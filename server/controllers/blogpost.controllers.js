@@ -50,10 +50,10 @@ exports.updateBlogpost = async (req, res, next) => {
       message: "Blog updated successfully!!!",
     });
   } catch (error) {
-    console.log(err);
+    console.log(error);
     res.status(500).json({
       succes: false,
-      message: `Error ${err.message}`,
+      message: `Error ${error.message}`,
     });
   }
 };
@@ -74,10 +74,10 @@ exports.deleteBlogpost = async (req, res, next) => {
       });
     });
   } catch (error) {
-    console.log(err);
+    console.log(error);
     res.status(500).json({
       succes: false,
-      message: `Error ${err.message}`,
+      message: `Error ${error.message}`,
     });
   }
 };
@@ -99,11 +99,11 @@ exports.getSingleBlogpost = async (req, res, next) => {
       singleBlogpost,
       message: "Got the blogpost!",
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res.status(500).json({
       succes: false,
-      message: `Error ${err.message}`,
+      message: `Error ${error.message}`,
     });
   }
 };
@@ -135,11 +135,11 @@ exports.getAllBlogposts = async (req, res, next) => {
       allBlogposts,
       message: "Got all blogposts!",
     });
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    console.log(error);
     res.status(500).json({
       succes: false,
-      message: `Error ${err.message}`,
+      message: `Error ${error.message}`,
     });
   }
 };

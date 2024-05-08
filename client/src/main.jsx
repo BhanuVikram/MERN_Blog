@@ -5,9 +5,7 @@ import "./styles/mainStyles.scss";
 import EditBlogpostContextProvider from "./context/EditBlogpostContextProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <EditBlogpostContextProvider>
-      <App />
-    </EditBlogpostContextProvider>
-  </React.StrictMode>
+  <EditBlogpostContextProvider>
+    <App />
+  </EditBlogpostContextProvider>
 );

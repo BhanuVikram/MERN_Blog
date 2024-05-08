@@ -286,7 +286,7 @@ const EditBlogpostComponent = ({ toggle }) => {
     axios
       .get(`http://localhost:8000/api/v1/getsingleblogpost/${blogpostId}`)
       .then((res) => setSingleBlogpost(res.data.singleBlogpost))
-      .catch((err) => console.log(err));
+      .catch((error) => console.log(error));
   }, [axios]);
 
   useEffect(() => {
@@ -295,10 +295,6 @@ const EditBlogpostComponent = ({ toggle }) => {
       setEditorContent(singleBlogpost.content || "");
     }
   }, [singleBlogpost]);
-
-  useEffect(() => {
-    console.log("Editor content updated:", editorContent);
-  }, [editorContent]);
 
   const editor = useEditor({
     editorProps: {
@@ -323,13 +319,17 @@ const EditBlogpostComponent = ({ toggle }) => {
     <div>
       <Formik
         initialValues={{
-          title: title || "Enter title here...",
-          content: editorContent || "Enter content here...",
+          title: title,
+          content: editorContent,
         }}
         onSubmit={(values) => {
           const updatedValues = {
             ...values,
           };
+
+          console.log("isContent:", isContent);
+          console.log("isTitle:", isTitle);
+          console.log("blogpostId:", blogpostId);
 
           if (isTitle && isContent) {
             axios
@@ -344,8 +344,8 @@ const EditBlogpostComponent = ({ toggle }) => {
                 console.log(res.message);
                 window.location.reload();
               })
-              .catch((err) => {
-                console.log(res.error);
+              .catch((error) => {
+                console.log(error.message);
               });
           }
         }}
