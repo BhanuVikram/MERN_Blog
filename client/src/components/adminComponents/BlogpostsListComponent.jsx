@@ -21,7 +21,7 @@ const BlogpostsListComponent = () => {
     axios
       .get("http://localhost:8000/api/v1/getallblogposts")
       .then((res) => setBlogposts(res.data.allBlogposts))
-      .catch((err) => console.log(err));
+      .catch((error) => console.log(error));
   }, [axios]);
 
   return (
@@ -54,32 +54,34 @@ const BlogpostsListComponent = () => {
                   />
                 </td>
                 <td>
-                  <CiTrash
-                    onClick={() => {
-                      let answer = window.confirm(
-                        "Are you sure you want to delete this blogpost?"
-                      );
+                  {!editToggle && (
+                    <CiTrash
+                      onClick={() => {
+                        let answer = window.confirm(
+                          "Are you sure you want to delete this blogpost?"
+                        );
 
-                      if (answer) {
-                        axios
-                          .delete(
-                            `http://localhost:8000/api/v1/deleteblogpost/${item._id}`,
-                            {
-                              headers,
-                            }
-                          )
-                          .then((res) => {
-                            console.log(res.status);
-                            console.log(res.data.message);
-                            alert(res.data.message);
-                            location.reload();
-                          })
-                          .catch((err) => {
-                            console.log(res.error);
-                          });
-                      }
-                    }}
-                  />
+                        if (answer) {
+                          axios
+                            .delete(
+                              `http://localhost:8000/api/v1/deleteblogpost/${item._id}`,
+                              {
+                                headers,
+                              }
+                            )
+                            .then((res) => {
+                              console.log(res.status);
+                              console.log(res.data.message);
+                              alert(res.data.message);
+                              location.reload();
+                            })
+                            .catch((error) => {
+                              console.log(res.error);
+                            });
+                        }
+                      }}
+                    />
+                  )}
                 </td>
               </tr>
             );
