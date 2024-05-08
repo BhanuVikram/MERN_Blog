@@ -1,28 +1,37 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/layoutsStyles/headerStyles.scss";
 import logo from "../assets/images/MERN_Blog_Logo.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
-  let navigate = useNavigate();
-
+  const navigate = useNavigate();
   const token = localStorage.getItem("accessToken");
   const username = localStorage.getItem("username");
+  const expirationTime = parseInt(localStorage.getItem("expires")) + Date.now();
 
   useEffect(() => {
     if (token && username) {
       setUserLoggedIn(true);
+      const timeUntilExpiration = expirationTime - Date.now();
+      if (timeUntilExpiration > 0) {
+        const logoutTimer = setTimeout(signOut, timeUntilExpiration);
+        return () => clearTimeout(logoutTimer);
+      } else {
+        // * Token already expired
+        signOut();
+      }
     }
-  }, [token, username]);
+  }, [token, username, expirationTime]);
 
-  const signOut = (e) => {
-    e.preventDefault();
+  function signOut() {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("username");
+    localStorage.removeItem("expires");
     navigate("/");
     window.location.reload();
-  };
+    console.log("User has been logged out!");
+  }
 
   if (userLoggedIn) {
     return (

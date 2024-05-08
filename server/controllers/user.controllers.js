@@ -71,6 +71,7 @@ exports.signIn = async (req, res, next) => {
       user,
       token,
       message: "Log in successful!",
+      expires: process.env.JWT_EXPIRE,
     });
   } catch (err) {
     console.log(err);

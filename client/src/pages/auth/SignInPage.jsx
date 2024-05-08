@@ -27,9 +27,9 @@ const SignIn = () => {
             axios
               .post(`http://localhost:8000/api/v1/signin`, values)
               .then((res) => {
-                console.log(res.message);
                 localStorage.setItem("accessToken", res.data.token);
                 localStorage.setItem("username", res.data.user.username);
+                localStorage.setItem("expires", res.data.expires);
                 if (res.data.user.role && res.data.user.role === "user") {
                   navigate("/");
                 } else if (
