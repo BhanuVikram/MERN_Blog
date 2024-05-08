@@ -3,7 +3,7 @@ import "../styles/layoutsStyles/headerStyles.scss";
 import logo from "../assets/images/MERN_Blog_Logo.png";
 import { Link, useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ user }) => {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
   const navigate = useNavigate();
   const token = localStorage.getItem("accessToken");
@@ -30,7 +30,10 @@ const Header = () => {
     localStorage.removeItem("expires");
     navigate("/");
     window.location.reload();
-    console.log("User has been logged out!");
+  }
+
+  function dashboard() {
+    navigate("/dashboard");
   }
 
   if (userLoggedIn) {
@@ -43,9 +46,16 @@ const Header = () => {
         <div className="nav-bar username">
           <div class="dropdown">
             <button class="dropbtn">{username}</button>
-            <div class="dropdown-content">
-              <button onClick={signOut}>Sign Out</button>
-            </div>
+            {user && user.role === "admin" && user && user.role !== "user" ? (
+              <div class="dropdown-content">
+                <button onClick={dashboard}>Dashboard</button>
+                <button onClick={signOut}>Sign Out</button>
+              </div>
+            ) : (
+              <div class="dropdown-content">
+                <button onClick={signOut}>Sign Out</button>
+              </div>
+            )}
           </div>
         </div>
       </div>

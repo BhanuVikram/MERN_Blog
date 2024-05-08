@@ -23,7 +23,6 @@ const SignIn = () => {
           }}
           validationSchema={SignInSchema}
           onSubmit={(values) => {
-            console.log(values);
             axios
               .post(`http://localhost:8000/api/v1/signin`, values)
               .then((res) => {

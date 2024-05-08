@@ -74,12 +74,14 @@
 
   .dropdown-content button {
     display: block;
-    padding: 4px 8px;
+    width: 100px;
+    padding: 8px;
+    margin-top: 4px;
     text-decoration: none;
     border: 1px solid $color--diff-blue;
     border-radius: 0.4rem;
     font-family: $fontfamily--primary;
-    font-size: $font--x-small;
+    font-size: $font--small;
     font-weight: 300;
     color: $color--lightblue;
     background-color: $color--indigo;
@@ -88,6 +90,7 @@
 
   .dropdown:hover .dropdown-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;

@@ -27,8 +27,8 @@ const App = () => {
     const fetchUser = async () => {
       try {
         const res = await fetch(`http://localhost:8000/api/v1/me`, { headers });
-        const user = await res.json();
-        setUser(user);
+        const data = await res.json();
+        setUser(data.user);
       } catch (err) {
         console.log(`Error fetching user data: ${err}`);
       }
@@ -38,54 +38,24 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <MainLayout>
-              <Home />
-            </MainLayout>
-          }
-        />
+      <MainLayout user={user}>
+        <Routes>
+          <Route path="/" element={<Home />} />
 
-        <Route
-          path="/blog/:_id"
-          element={
-            <MainLayout>
-              <Blogpost />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <MainLayout>
-              {user.user && user.user.role && user.user.role === "admin" && (
-                <Dashboard />
-              )}
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/signin"
-          element={
-            <MainLayout>
-              <SignIn />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <MainLayout>
-              <SignUp />
-            </MainLayout>
-          }
-        />
-        <Route path="/404" element={<Page_404 />} />
-        <Route path="/500" element={<Page_500 />} />
-        <Route path="*" element={<Navigate to="/404" replace />} />
-      </Routes>
+          <Route path="/blog/:_id" element={<Blogpost />} />
+          <Route
+            path="/dashboard"
+            element={
+              user && user.role && user.role === "admin" && <Dashboard />
+            }
+          />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/404" element={<Page_404 />} />
+          <Route path="/500" element={<Page_500 />} />
+          <Route path="*" element={<Navigate to="/404" replace />} />
+        </Routes>
+      </MainLayout>
     </BrowserRouter>
   );
 };
