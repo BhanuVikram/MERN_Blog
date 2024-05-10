@@ -287,12 +287,12 @@ const EditBlogpostComponent = ({ toggle }) => {
       .get(`http://localhost:8000/api/v1/getsingleblogpost/${blogpostId}`)
       .then((res) => setSingleBlogpost(res.data.singleBlogpost))
       .catch((error) => console.log(error));
-  }, [axios]);
+  }, [blogpostId]);
 
   useEffect(() => {
     if (singleBlogpost) {
-      setTitle(singleBlogpost.title || "");
-      setEditorContent(singleBlogpost.content || "");
+      setTitle(singleBlogpost.title && singleBlogpost.title);
+      setEditorContent(singleBlogpost.content && singleBlogpost.content);
     }
   }, [singleBlogpost]);
 
@@ -304,38 +304,31 @@ const EditBlogpostComponent = ({ toggle }) => {
     },
     extensions,
     content: editorContent && editorContent,
-    // onUpdate: ({ editor }) => {
-    //   setEditorContent(editor.getHTML());
-    // },
-  });
-
-  useEffect(() => {
-    if (editor) {
+    onUpdate: ({ editor }) => {
       setEditorContent(editor.getHTML());
-    }
-  }, [editor]);
+    },
+  });
 
   return (
     <div>
       <Formik
         initialValues={{
-          title: title,
-          content: editorContent,
+          title: title && title,
+          content: editorContent && editorContent,
         }}
         onSubmit={(values) => {
           const updatedValues = {
             ...values,
           };
 
-          console.log("isContent:", isContent);
-          console.log("isTitle:", isTitle);
-          console.log("blogpostId:", blogpostId);
-
-          if (isTitle && isContent) {
+          if (title && editorContent) {
             axios
               .put(
                 `http://localhost:8000/api/v1/updateblogpost/${blogpostId}`,
-                updatedValues,
+                {
+                  title,
+                  content: editorContent,
+                },
                 {
                   headers,
                 }
