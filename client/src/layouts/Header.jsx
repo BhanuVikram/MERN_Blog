@@ -25,6 +25,7 @@ const Header = ({ user }) => {
   }, [token, username, expirationTime]);
 
   function signOut() {
+    setUserLoggedIn(false);
     localStorage.removeItem("accessToken");
     localStorage.removeItem("username");
     localStorage.removeItem("expires");
