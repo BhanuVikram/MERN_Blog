@@ -24,13 +24,13 @@ app.use(cookieParser());
 
 // * IMPORT ROUTES
 
-const signUp = require("./routes/user.routes");
-const createBlogpost = require("./routes/blogpost.routes");
+const user = require("./routes/user.routes");
+const blogpost = require("./routes/blogpost.routes");
 
 // * CALL ROUTES
 
-app.use("/api/v1", signUp);
-app.use("/api/v1", createBlogpost);
+app.use("/api/v1", user);
+app.use("/api/v1", blogpost);
 
 app.use(errorMiddlewares);
 
