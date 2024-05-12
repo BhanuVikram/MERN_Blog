@@ -119,15 +119,12 @@ exports.getSingleBlogpost = async (req, res, next) => {
 
 // * GET ALL BLOGPOSTS
 
-function extractChars(stringArray) {
-  let result = "";
-  for (const str of stringArray) {
-    result += str.slice(0, 625 - result.length);
-    if (result.length >= 625) {
-      break;
-    }
+function extractChars(body) {
+  if (body.length <= 625) {
+    return body;
+  } else {
+    return body.slice(0, 625) + "...";
   }
-  return result.slice(0, 625) + "...";
 }
 
 exports.getAllBlogposts = async (req, res, next) => {
