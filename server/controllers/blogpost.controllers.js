@@ -33,7 +33,10 @@ exports.updateBlogpost = async (req, res, next) => {
   try {
     let singleBlogpost = await Blogpost.findById(req.params._id);
     if (!singleBlogpost) {
-      return res.send("Blogpost not found!");
+      return res.status(404).json({
+        success: false,
+        message: "Blogpost not found!",
+      });
     }
     singleBlogpost = await Blogpost.findByIdAndUpdate(
       req.params._id,
@@ -65,7 +68,10 @@ exports.deleteBlogpost = async (req, res, next) => {
   try {
     let singleBlogpost = await Blogpost.findById(req.params._id);
     if (!singleBlogpost) {
-      return res.send("Blogpost not found!");
+      return res.status(404).json({
+        success: false,
+        message: "Blogpost not found!",
+      });
     }
     Blogpost.deleteOne({ _id: req.params._id }).then(() => {
       res.status(200).json({
@@ -92,7 +98,10 @@ exports.getSingleBlogpost = async (req, res, next) => {
       "username"
     );
     if (!singleBlogpost) {
-      return res.send("Blogpost not found!");
+      return res.status(404).json({
+        success: false,
+        message: "Blogpost not found!",
+      });
     }
     res.status(200).json({
       success: true,
