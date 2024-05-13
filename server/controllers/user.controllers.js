@@ -16,7 +16,7 @@ exports.signUp = async (req, res, next) => {
     await newUser.save();
 
     const token = await newUser.generateToken();
-    console.log("token:", token);
+
     return res.status(201).json({
       success: true,
       newUser,
@@ -57,7 +57,7 @@ exports.signIn = async (req, res, next) => {
     }
 
     const isSamePassword = await user.comparePassword(password);
-    console.log("isSamePassword:", isSamePassword);
+
     if (!isSamePassword) {
       return res.status(404).json({
         success: false,
@@ -89,7 +89,7 @@ exports.myProfile = async (req, res, next) => {
     const user = await User.findById(req.user).populate(
       "firstname lastname username email role"
     );
-    console.log(`My Profile: ${user}`);
+
     res.status(200).json({
       success: true,
       user,
