@@ -9,9 +9,13 @@ const Blogpost = () => {
   const accessToken = localStorage.getItem("accessToken");
   const [singleBlogpost, setSingleBlogpost] = useState({});
 
+  const headers = {
+    Authorization: `Brearer ${accessToken}`,
+  };
+
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/v1/getsingleblogpost/${_id}`)
+      .get(`http://localhost:8000/api/v1/getsingleblogpost/${_id}`, { headers })
       .then((res) => setSingleBlogpost(res.data.singleBlogpost))
       .catch((error) => console.log(error));
   }, [axios]);

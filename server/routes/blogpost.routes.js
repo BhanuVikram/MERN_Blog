@@ -34,6 +34,6 @@ router
   .route("/updateblogpost/:_id")
   .put(isAuthenticated, isAuthorized("admin"), updateBlogpost);
 
-router.route("/getsingleblogpost/:_id").get(getSingleBlogpost);
+router.route("/getsingleblogpost/:_id").get(isAuthenticated, getSingleBlogpost);
 
 module.exports = router;
