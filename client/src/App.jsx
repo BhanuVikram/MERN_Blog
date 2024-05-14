@@ -20,7 +20,7 @@ const App = () => {
   const [user, setUser] = useState("");
 
   const headers = {
-    Authorization: `Brearer ${accessToken}`,
+    Authorization: `Bearer ${accessToken}`,
   };
 
   useEffect(() => {

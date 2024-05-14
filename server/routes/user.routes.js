@@ -2,10 +2,7 @@ const express = require("express");
 
 // * MIDDLEWARES IMPORT
 
-const {
-  isAuthenticated,
-  isAuthorized,
-} = require("../middlewares/auth.middlerwares");
+const { isAuthenticated } = require("../middlewares/auth.middlerwares");
 
 // * CONTROLLERS IMPORT
 
