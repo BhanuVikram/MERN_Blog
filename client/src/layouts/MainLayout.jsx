@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./HeaderLayout";
+import Footer from "./FooterLayout";
 import "../styles/layoutsStyles/mainLayoutStyles.scss";
 
 const MainLayout = ({ children, user }) => {
