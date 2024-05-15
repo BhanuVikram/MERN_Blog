@@ -262,18 +262,21 @@ const extensions = [
   }),
 ];
 
-const EditBlogpostComponent = ({ toggle }) => {
+const EditBlogpostComponent = () => {
   const { blogpostId, setBlogpostId } = useContext(EditBlogpostContext);
   const [singleBlogpost, setSingleBlogpost] = useState({});
   const [title, setTitle] = useState("");
   const [editorContent, setEditorContent] = useState("");
+  const [contentToggle, setContentToggle] = useState(true);
   const [isTitle, setIsTitle] = useState(false);
   const [isContent, setIsContent] = useState(false);
 
+  // * TITLE TOGGLE
   useEffect(() => {
     setIsTitle(title && title.length > 1 && title.length < 121);
   }, [title]);
 
+  // * CONTENT TOGGLE
   useEffect(() => {
     setIsContent(
       editorContent &&
@@ -284,18 +287,22 @@ const EditBlogpostComponent = ({ toggle }) => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/api/v1/getsingleblogpost/${blogpostId}`)
-      .then((res) => setSingleBlogpost(res.data.singleBlogpost))
+      .get(`http://localhost:8000/api/v1/getsingleblogpost/${blogpostId}`, {
+        headers,
+      })
+      .then((res) => {
+        setSingleBlogpost(res.data.singleBlogpost);
+        setTitle(
+          res.data.singleBlogpost.title && res.data.singleBlogpost.title
+        );
+        setEditorContent(
+          res.data.singleBlogpost.content && res.data.singleBlogpost.content
+        );
+      })
       .catch((error) => console.log(error));
   }, [blogpostId]);
 
-  useEffect(() => {
-    if (singleBlogpost) {
-      setTitle(singleBlogpost.title && singleBlogpost.title);
-      setEditorContent(singleBlogpost.content && singleBlogpost.content);
-    }
-  }, [singleBlogpost]);
-
+  const content = "Hiiiiiiiiiiiii";
   const editor = useEditor({
     editorProps: {
       attributes: {
@@ -303,24 +310,26 @@ const EditBlogpostComponent = ({ toggle }) => {
       },
     },
     extensions,
-    content: editorContent && editorContent,
+    content,
     onUpdate: ({ editor }) => {
-      setEditorContent(editor.getHTML());
+      const html = editor.getHTML();
+      setEditorContent(html);
     },
   });
+
+  if (editorContent && contentToggle) {
+    editor.commands.setContent(editorContent);
+    setContentToggle(false);
+  }
 
   return (
     <div>
       <Formik
         initialValues={{
-          title: title && title,
-          content: editorContent && editorContent,
+          title: "",
+          content: "",
         }}
         onSubmit={(values) => {
-          const updatedValues = {
-            ...values,
-          };
-
           if (title && editorContent) {
             axios
               .put(
@@ -363,16 +372,8 @@ const EditBlogpostComponent = ({ toggle }) => {
           <div className="blogpost-content">
             <label htmlFor="content">Edit Blogpost Content</label>
             <div className="blogpost-content-inner">
-              <EditorProvider
-                slotBefore={<MenuBar editor={editor} />}
-                extensions={extensions}
-                content={editorContent}
-                onUpdate={({ editor }) => {
-                  setEditorContent(editor.getHTML());
-                }}
-              >
-                <EditorContent editor={editor} />
-              </EditorProvider>
+              {<MenuBar editor={editor} />}
+              {editorContent && <EditorContent editor={editor} />}
             </div>
             {!isContent && (
               <div className="error-message">
