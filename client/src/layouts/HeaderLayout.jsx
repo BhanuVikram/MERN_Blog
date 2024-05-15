@@ -8,11 +8,12 @@ const Header = ({ user }) => {
   const navigate = useNavigate();
   const token = localStorage.getItem("accessToken");
   const username = localStorage.getItem("username");
-  const expirationTime = parseInt(localStorage.getItem("expires")) + Date.now();
+  const expirationDuration = parseInt(localStorage.getItem("expires"));
 
   useEffect(() => {
     if (token && username) {
       setUserLoggedIn(true);
+      let expirationTime = expirationDuration + Date.now();
       const timeUntilExpiration = expirationTime - Date.now();
       if (timeUntilExpiration > 0) {
         const logoutTimer = setTimeout(signOut, timeUntilExpiration);
@@ -22,7 +23,7 @@ const Header = ({ user }) => {
         signOut();
       }
     }
-  }, [token, username, expirationTime]);
+  }, [token, username, expirationDuration]);
 
   function signOut() {
     setUserLoggedIn(false);
@@ -47,12 +48,13 @@ const Header = ({ user }) => {
         <div className="nav-bar username">
           <div class="dropdown">
             <button class="dropbtn">{username}</button>
-            {user && user.role === "admin" && user && user.role !== "user" ? (
+            {user && user.role === "admin" && (
               <div class="dropdown-content">
                 <button onClick={dashboard}>Dashboard</button>
                 <button onClick={signOut}>Sign Out</button>
               </div>
-            ) : (
+            )}
+            {user && user.role === "user" && (
               <div class="dropdown-content">
                 <button onClick={signOut}>Sign Out</button>
               </div>
