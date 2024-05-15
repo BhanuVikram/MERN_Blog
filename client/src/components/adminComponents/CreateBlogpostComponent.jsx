@@ -353,16 +353,8 @@ const CreateBlogpostComponent = () => {
           <div className="blogpost-content">
             <label htmlFor="content">Enter Blogpost Content</label>
             <div className="blogpost-content-inner">
-              <EditorProvider
-                slotBefore={<MenuBar editor={editor} />}
-                extensions={extensions}
-                content={editorContent}
-                onUpdate={({ editor }) => {
-                  setEditorContent(editor.getHTML());
-                }}
-              >
-                <EditorContent editor={editor} />
-              </EditorProvider>
+              {<MenuBar editor={editor} />}
+              {<EditorContent editor={editor} />}
             </div>
             {!isContent && (
               <div className="error-message">

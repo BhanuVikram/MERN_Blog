@@ -302,7 +302,7 @@ const EditBlogpostComponent = () => {
       .catch((error) => console.log(error));
   }, [blogpostId]);
 
-  const content = "Hiiiiiiiiiiiii";
+  const content = "";
   const editor = useEditor({
     editorProps: {
       attributes: {
