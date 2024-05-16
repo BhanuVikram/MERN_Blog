@@ -28,15 +28,15 @@
     color: $color--lightblue;
     background-color: $color--indigo;
     cursor: pointer;
+
+    :hover {
+      border-radius: 25px;
+      font-weight: 600;
+    }
   }
 
   .sign-up-button {
     margin-right: 40px;
-  }
-
-  .auth-buttons:hover {
-    border-radius: 25px;
-    font-weight: 600;
   }
 
   .username {
@@ -52,7 +52,7 @@
     display: inline-block;
   }
 
-  .dropbtn {
+  .username-btn {
     padding: 6px 12px;
     border: 1px solid $color--diff-blue;
     border-radius: 0.5rem;
@@ -70,22 +70,22 @@
     background-color: $color--almost-black;
     z-index: 1;
     transition: display 0.2s ease-in-out;
-  }
 
-  .dropdown-content button {
-    display: block;
-    width: 100px;
-    padding: 8px;
-    margin-top: 4px;
-    text-decoration: none;
-    border: 1px solid $color--diff-blue;
-    border-radius: 0.4rem;
-    font-family: $fontfamily--primary;
-    font-size: $font--small;
-    font-weight: 300;
-    color: $color--lightblue;
-    background-color: $color--indigo;
-    cursor: pointer;
+    button {
+      display: block;
+      width: 100px;
+      padding: 8px;
+      margin-top: 4px;
+      text-decoration: none;
+      border: 1px solid $color--diff-blue;
+      border-radius: 0.4rem;
+      font-family: $fontfamily--primary;
+      font-size: $font--small;
+      font-weight: 300;
+      color: $color--lightblue;
+      background-color: $color--indigo;
+      cursor: pointer;
+    }
   }
 
   .dropdown:hover .dropdown-content {
@@ -97,7 +97,7 @@
     margin: auto;
   }
 
-  .dropdown:hover .dropbtn {
+  .dropdown:hover .username-btn {
     background-color: $color--almost-black;
   }
 }

@@ -45,24 +45,24 @@
     position: absolute;
     bottom: 40px;
     right: 50px;
-  }
 
-  .button button {
-    padding: 8px 16px;
-    border: 1px solid $color--lightblue;
-    border-radius: 6px;
-    font-family: $fontfamily--primary;
-    font-size: $font--xxx-small;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: $color--lightblue;
-    background-color: $color--indigo;
-    cursor: pointer;
-  }
+    button {
+      padding: 8px 16px;
+      border: 1px solid $color--lightblue;
+      border-radius: 6px;
+      font-family: $fontfamily--primary;
+      font-size: $font--xxx-small;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: $color--lightblue;
+      background-color: $color--indigo;
+      cursor: pointer;
 
-  .button button:hover {
-    border: 2px solid $color--lightblue;
-    font-weight: 600;
+      :hover {
+        border: 2px solid $color--lightblue;
+        font-weight: 600;
+      }
+    }
   }
 }

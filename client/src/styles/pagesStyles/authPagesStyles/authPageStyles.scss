@@ -70,9 +70,9 @@
     background-color: $color--almost-black;
     color: $color--lightblue;
     cursor: pointer;
-  }
 
-  button:focus {
-    outline: 1px solid $color--indigo;
+    :focus {
+      outline: 1px solid $color--indigo;
+    }
   }
 }
