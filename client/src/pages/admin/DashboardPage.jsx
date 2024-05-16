@@ -10,11 +10,17 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-      <h1>Admin Dashboard</h1>
-      <div className="sub-headings">
-        <div>{editToggle ? <h1>Edit Blogpost</h1> : <h1>New Blogpost</h1>}</div>
+      <h1 className="heading">Admin Dashboard</h1>
+      <div className="subheadings">
         <div>
-          <h1>All Blogposts</h1>
+          {editToggle ? (
+            <h2 className="subheading">Edit Blogpost</h2>
+          ) : (
+            <h2 className="subheading">New Blogpost</h2>
+          )}
+        </div>
+        <div>
+          <h2 className="subheading">All Blogposts</h2>
         </div>
       </div>
       <div className="dashboard-components">
