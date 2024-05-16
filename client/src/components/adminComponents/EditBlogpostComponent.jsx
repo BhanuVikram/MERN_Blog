@@ -8,6 +8,8 @@ import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import HardBreak from "@tiptap/extension-hard-break";
+import Code from "@tiptap/extension-code";
+import CodeBlock from "@tiptap/extension-code-block";
 import "../../styles/componentsStyles/adminComponentsStyles/createBlogpostComponentStyles.scss";
 import { FiBold } from "react-icons/fi";
 import { FiUnderline } from "react-icons/fi";
@@ -253,6 +255,16 @@ const extensions = [
     },
   }),
   Underline,
+  Code.configure({
+    HTMLAttributes: {
+      class: "inline-code",
+    },
+  }),
+  CodeBlock.configure({
+    HTMLAttributes: {
+      class: "code-block",
+    },
+  }),
   HardBreak.extend({
     addKeyboardShortcuts() {
       return {
