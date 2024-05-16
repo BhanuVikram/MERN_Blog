@@ -326,6 +326,7 @@ const CreateBlogpostComponent = () => {
               .then((res) => {
                 console.log(res.message);
                 window.location.reload();
+                alert("New blog post created successfully!");
               })
               .catch((error) => {
                 console.log(error.message);
@@ -362,13 +363,34 @@ const CreateBlogpostComponent = () => {
               </div>
             )}
           </div>
-          <button
-            disabled={!isTitle || !isContent}
-            type="submit"
-            className={!isTitle || !isContent ? "disabled" : "submit"}
-          >
-            Publish
-          </button>
+          <div className="bottom-buttons">
+            <div className="bottom-button">
+              <button
+                type="button"
+                className="cancel"
+                onClick={() => {
+                  let answer = window.confirm(
+                    "You will lose all unpublished data... Are you sure?"
+                  );
+
+                  if (answer) {
+                    window.location.reload();
+                  }
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+            <div className="bottom-button">
+              <button
+                disabled={!isTitle || !isContent}
+                type="submit"
+                className={!isTitle || !isContent ? "disabled" : "publish"}
+              >
+                Publish
+              </button>
+            </div>
+          </div>
         </Form>
       </Formik>
     </div>

@@ -263,7 +263,8 @@ const extensions = [
 ];
 
 const EditBlogpostComponent = () => {
-  const { blogpostId, setBlogpostId } = useContext(EditBlogpostContext);
+  const { editToggle, setEditToggle, blogpostId, setBlogpostId } =
+    useContext(EditBlogpostContext);
   const [singleBlogpost, setSingleBlogpost] = useState({});
   const [title, setTitle] = useState("");
   const [editorContent, setEditorContent] = useState("");
@@ -345,6 +346,7 @@ const EditBlogpostComponent = () => {
               .then((res) => {
                 console.log(res.message);
                 window.location.reload();
+                alert("Blog post has been updated successfully!");
               })
               .catch((error) => {
                 console.log(error.message);
@@ -381,13 +383,34 @@ const EditBlogpostComponent = () => {
               </div>
             )}
           </div>
-          <button
-            disabled={!isTitle || !isContent}
-            type="submit"
-            className={!isTitle || !isContent ? "disabled" : "submit"}
-          >
-            Update
-          </button>
+          <div className="bottom-buttons">
+            <div className="bottom-button">
+              <button
+                type="button"
+                className="cancel"
+                onClick={() => {
+                  let answer = window.confirm(
+                    "You will lose all the changes... Are you sure?"
+                  );
+
+                  if (answer) {
+                    setEditToggle(false);
+                  }
+                }}
+              >
+                Cancel
+              </button>
+            </div>
+            <div className="bottom-button">
+              <button
+                disabled={!isTitle || !isContent}
+                type="submit"
+                className={!isTitle || !isContent ? "disabled" : "publish"}
+              >
+                Update
+              </button>
+            </div>
+          </div>
         </Form>
       </Formik>
     </div>

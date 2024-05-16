@@ -47,18 +47,22 @@ const BlogpostsListComponent = () => {
                 </td>
                 <td>
                   <CiEdit
+                    className={editToggle ? "disabled" : "enabled"}
                     onClick={() => {
-                      setBlogpostId(item._id);
-                      setEditToggle(!editToggle);
+                      if (!editToggle) {
+                        setBlogpostId(item._id);
+                        setEditToggle(!editToggle);
+                      }
                     }}
                   />
                 </td>
                 <td>
-                  {!editToggle && (
-                    <CiTrash
-                      onClick={() => {
+                  <CiTrash
+                    className={editToggle ? "disabled" : "enabled"}
+                    onClick={() => {
+                      if (!editToggle) {
                         let answer = window.confirm(
-                          "Are you sure you want to delete this blogpost?"
+                          "Are you sure you want to delete this blog post?"
                         );
 
                         if (answer) {
@@ -76,12 +80,12 @@ const BlogpostsListComponent = () => {
                               location.reload();
                             })
                             .catch((error) => {
-                              console.log(res.error);
+                              console.log(error);
                             });
                         }
-                      }}
-                    />
-                  )}
+                      }
+                    }}
+                  />
                 </td>
               </tr>
             );

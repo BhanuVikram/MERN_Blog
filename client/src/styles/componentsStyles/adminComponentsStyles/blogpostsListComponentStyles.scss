@@ -9,11 +9,13 @@
   padding: 0 50px 50px 50px;
   overflow: scroll;
 
-  .single-blogpost td {
-    padding: 10px 8px;
-    font-size: $font--medium;
-    white-space: nowrap;
-    color: $color--indigo;
+  .single-blogpost {
+    td {
+      padding: 10px 8px;
+      font-size: $font--medium;
+      white-space: nowrap;
+      color: $color--indigo;
+    }
   }
 
   .title {
@@ -36,5 +38,9 @@
   svg {
     fill: $color--indigo;
     cursor: pointer;
+  }
+
+  .disabled {
+    cursor: not-allowed;
   }
 }

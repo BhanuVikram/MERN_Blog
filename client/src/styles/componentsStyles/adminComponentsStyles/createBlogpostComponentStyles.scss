@@ -18,41 +18,41 @@
     padding-bottom: 10px;
     width: 100%;
     min-height: 100px;
-  }
 
-  .blogpost-title label {
-    display: block;
-    padding-bottom: 10px;
-    font-size: $font--x-large;
-    color: $color--indigo;
-  }
+    label {
+      display: block;
+      padding-bottom: 10px;
+      font-size: $font--x-large;
+      color: $color--indigo;
+    }
 
-  .blogpost-title #title {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid $color--indigo;
-    border-radius: 0.25rem;
-    font-family: $fontfamily--primary;
-    color: $color--light-gray;
-    background-color: $color--almost-black;
-  }
+    #title {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid $color--indigo;
+      border-radius: 0.25rem;
+      font-family: $fontfamily--primary;
+      color: $color--light-gray;
+      background-color: $color--almost-black;
 
-  .blogpost-title #title:focus {
-    outline: none;
+      :focus {
+        outline: none;
+      }
+    }
   }
 
   .blogpost-content {
     display: block;
     width: 100%;
     min-height: 430px;
-  }
 
-  .blogpost-content label {
-    display: block;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: $font--x-large;
-    color: $color--indigo;
+    label {
+      display: block;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-size: $font--x-large;
+      color: $color--indigo;
+    }
   }
 
   .error-message {
@@ -62,74 +62,81 @@
     padding-top: 4px;
   }
 
-  .submit {
-    padding: 8px 16px;
-    margin: 10px 0;
-    border: 2px solid $color--lightblue;
-    border-radius: 0.25rem;
-    font-family: $fontfamily--primary;
-    font-size: $font--x-small;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: $color--lightblue;
-    background-color: $color--indigo;
-    cursor: pointer;
-  }
+  // * CANCEL & PUBLISH BUTTONS
 
-  .submit:hover {
-    font-weight: 600;
-    box-shadow: rgba(157, 228, 246, 0.5) 0px 4px 4px,
-      rgba(157, 228, 246, 0.5) 0px -4px 4px,
-      rgba(157, 228, 246, 0.5) 4px 0px 4px,
-      rgba(157, 228, 246, 0.5) -4px 0px 4px;
-  }
+  .bottom-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
-  .disabled {
-    padding: 8px 16px;
-    margin: 10px 0;
-    border: 1px solid $color--lightblue;
-    border-radius: 0.25rem;
-    font-family: $fontfamily--primary;
-    font-size: $font--x-small;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: $color--lightblue;
-    background-color: $color--indigo;
-    cursor: not-allowed;
+    .bottom-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 50%;
+    }
+
+    button {
+      width: 80%;
+      padding: 8px 16px;
+      margin: 10px 0;
+      border: 1px solid $color--lightblue;
+      border-radius: 0.25rem;
+      font-family: $fontfamily--primary;
+      font-size: $font--x-small;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: $color--lightblue;
+      background-color: $color--indigo;
+      cursor: pointer;
+
+      .disabled {
+        cursor: not-allowed;
+      }
+
+      :hover {
+        font-weight: 600;
+        box-shadow: rgba(157, 228, 246, 0.5) 0px 4px 4px,
+          rgba(157, 228, 246, 0.5) 0px -4px 4px,
+          rgba(157, 228, 246, 0.5) 4px 0px 4px,
+          rgba(157, 228, 246, 0.5) -4px 0px 4px;
+      }
+    }
   }
 
   .menu-bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
 
-  .menu-bar button {
-    padding: 4px 4px;
-    margin: 4px 2px;
-    border: 1px solid $color--lightblue;
-    border-radius: 0.25rem;
-    font-family: $fontfamily--primary;
-    font-size: $font--large;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: $color--lightblue;
-    background-color: $color--indigo;
-    cursor: pointer;
-  }
+    button {
+      padding: 4px 4px;
+      margin: 4px 2px;
+      border: 1px solid $color--lightblue;
+      border-radius: 0.25rem;
+      font-family: $fontfamily--primary;
+      font-size: $font--large;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: $color--lightblue;
+      background-color: $color--indigo;
+      cursor: pointer;
 
-  .menu-bar button:hover {
-    border: 1px solid $color--lightblue;
-    box-shadow: rgba(157, 228, 246, 0.5) 0px 4px 4px,
-      rgba(157, 228, 246, 0.5) 0px -4px 4px,
-      rgba(157, 228, 246, 0.5) 4px 0px 4px,
-      rgba(157, 228, 246, 0.5) -4px 0px 4px;
-    font-weight: 500;
+      :hover {
+        border: 1px solid $color--lightblue;
+        box-shadow: rgba(157, 228, 246, 0.5) 0px 4px 4px,
+          rgba(157, 228, 246, 0.5) 0px -4px 4px,
+          rgba(157, 228, 246, 0.5) 4px 0px 4px,
+          rgba(157, 228, 246, 0.5) -4px 0px 4px;
+        font-weight: 500;
+      }
+    }
   }
 }
+
+// * EDITOR CONTENT
 
 .editor-content {
   width: 100%;
@@ -141,11 +148,13 @@
   border-radius: 0.25rem;
   color: $color--light-gray;
   background-color: $color--almost-black;
+
+  :focus {
+    outline: none;
+  }
 }
 
-.editor-content:focus {
-  outline: none;
-}
+// * TIPTAP
 
 .tiptap {
   ul,
