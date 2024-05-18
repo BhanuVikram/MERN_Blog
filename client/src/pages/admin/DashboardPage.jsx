@@ -25,7 +25,7 @@ const Dashboard = () => {
       </div>
       <div className="dashboard-components">
         {editToggle ? <EditBlogpostComponent /> : <CreateBlogpostComponent />}
-        <BlogpostsListComponent toggle:editToggle />
+        <BlogpostsListComponent />
       </div>
     </div>
   );
