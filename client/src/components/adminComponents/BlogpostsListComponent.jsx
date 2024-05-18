@@ -22,7 +22,7 @@ const BlogpostsListComponent = () => {
       .get("http://localhost:8000/api/v1/getallblogposts")
       .then((res) => setBlogposts(res.data.allBlogposts))
       .catch((error) => console.log(error));
-  }, [axios]);
+  }, []);
 
   return (
     <div className="all-blogposts">

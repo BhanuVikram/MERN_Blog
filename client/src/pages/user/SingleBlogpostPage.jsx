@@ -10,7 +10,7 @@ const Blogpost = () => {
   const [singleBlogpost, setSingleBlogpost] = useState({});
 
   const headers = {
-    Authorization: `Brearer ${accessToken}`,
+    Authorization: `Bearer ${accessToken}`,
   };
 
   useEffect(() => {
@@ -18,14 +18,14 @@ const Blogpost = () => {
       .get(`http://localhost:8000/api/v1/getsingleblogpost/${_id}`, { headers })
       .then((res) => setSingleBlogpost(res.data.singleBlogpost))
       .catch((error) => console.log(error));
-  }, [axios]);
+  }, []);
 
   if (accessToken) {
     return (
       <div className="single-blogpost-page">
         <h1 className="title">{singleBlogpost && singleBlogpost.title}</h1>
         <h4 className="author">
-          Author:{" "}
+          Author:
           {singleBlogpost &&
             singleBlogpost.author &&
             singleBlogpost.author.username}
