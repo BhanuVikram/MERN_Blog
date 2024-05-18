@@ -53,7 +53,7 @@ const App = () => {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/404" element={<Page_404 />} />
           <Route path="/500" element={<Page_500 />} />
-          <Route path="*" element={<Navigate to="/404" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>
