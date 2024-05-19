@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "../styles/layoutsStyles/footerStyles.scss";
 import logo from "../assets/images/MERN_Blog_Logo.png";
 import { SiAiohttp } from "react-icons/si";
@@ -19,15 +20,17 @@ const Footer = () => {
       </div>
 
       <div className="footer-links">
-        <a href="https://www.linkedin.com/in/bhanuvikram" target="_blank">
+        <Link to="https://www.linkedin.com/in/bhanuvikram" target="_blank">
           <FaLinkedin />
-          <a href="https://www.linkedin.com/in/bhanuvikram" target="_blank">
-            <SiAiohttp />
-          </a>
-        </a>
-        <a href="https://github.com/BhanuVikram" target="_blank">
+        </Link>
+
+        <Link to="https://www.linkedin.com/in/bhanuvikram" target="_blank">
+          <SiAiohttp />
+        </Link>
+
+        <Link to="https://github.com/BhanuVikram" target="_blank">
           <FaGithubSquare />
-        </a>
+        </Link>
       </div>
     </div>
   );
