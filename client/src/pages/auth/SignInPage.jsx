@@ -26,6 +26,7 @@ const SignIn = () => {
             axios
               .post(`http://localhost:8000/api/v1/signin`, values)
               .then((res) => {
+                console.log(res.message);
                 localStorage.setItem("accessToken", res.data.token);
                 localStorage.setItem("username", res.data.user.username);
                 localStorage.setItem("expires", res.data.expires);
@@ -42,19 +43,10 @@ const SignIn = () => {
               .catch((error) => {
                 console.log(error);
                 if (error.response) {
-                  // The request was made and the server responded with a status code
-                  // that falls out of the range of 2xx
-                  console.log(error.response.data);
-                  console.log(error.response.status);
-                  console.log(error.response.headers);
                   alert(error.response.data.message || "An error occurred");
                 } else if (error.request) {
-                  // The request was made but no response was received
-                  console.log(error.request);
                   alert("No response was received");
                 } else {
-                  // Something happened in setting up the request that triggered an Error
-                  console.log("Error", error.message);
                   alert(error.message);
                 }
               });
