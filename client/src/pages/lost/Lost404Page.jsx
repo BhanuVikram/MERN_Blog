@@ -1,8 +1,15 @@
 import React from "react";
-import "../../styles/pagesStyles/lostPagesStyles/404PageStyles.scss";
+import { Link } from "react-router-dom";
+import "../../styles/pagesStyles/lostPagesStyles/lostPageStyles.scss";
 
-const Page_404 = () => {
-  return <div>Page_404</div>;
+const Lost404Page = () => {
+  return (
+    <div className="lost">
+      <h1>404</h1>
+      <h2>Oops... Looks like you are lost...</h2>
+      <Link to={"/"}>Click here to return home</Link>
+    </div>
+  );
 };
 
-export default Page_404;
+export default Lost404Page;

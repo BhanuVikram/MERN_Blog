@@ -1,0 +1,32 @@
+@import "../../partials/_colorsPartials.scss";
+@import "../../partials/_fontsPartials.scss";
+@import "../../partials/_imagesPartials.scss";
+
+.lost {
+  font-family: $fontfamily--primary;
+  text-align: center;
+  height: 80vh;
+
+  h1 {
+    font-size: 19rem;
+    color: $color--indigo;
+  }
+
+  h2 {
+    margin: 5rem;
+    font-size: 3.5rem;
+    color: $color--indigo;
+  }
+
+  a {
+    font-family: $fontfamily--primary;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: $color--indigo;
+  }
+
+  a:hover {
+    font-size: 1.6rem;
+  }
+}
