@@ -25,12 +25,13 @@ const Blogpost = () => {
       <div className="single-blogpost-page">
         <h1 className="title">{singleBlogpost && singleBlogpost.title}</h1>
         <h4 className="author">
-          Author:
           {singleBlogpost &&
             singleBlogpost.author &&
-            singleBlogpost.author.username}
+            singleBlogpost.author.firstname +
+              " " +
+              singleBlogpost.author.lastname}
         </h4>
-        <h5 className="date">Date: {singleBlogpost && singleBlogpost.date}</h5>
+        <h5 className="date">{singleBlogpost && singleBlogpost.date}</h5>
 
         {singleBlogpost &&
           singleBlogpost.content &&

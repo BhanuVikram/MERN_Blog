@@ -25,7 +25,7 @@ const Home = () => {
                 key={index}
                 _id={item._id}
                 title={item.title}
-                author={item.author.username}
+                author={item.author.firstname + " " + item.author.lastname}
                 date={item.date}
                 content={item.content}
               />

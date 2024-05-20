@@ -8,6 +8,8 @@ const Header = ({ user }) => {
   const navigate = useNavigate();
   const token = localStorage.getItem("accessToken");
   const username = localStorage.getItem("username");
+  const firstname = localStorage.getItem("firstname");
+  const lastname = localStorage.getItem("lastname");
   const expirationDuration = parseInt(localStorage.getItem("expires"));
   const expirationTime = expirationDuration + Date.now();
 
@@ -29,6 +31,8 @@ const Header = ({ user }) => {
     setUserLoggedIn(false);
     localStorage.removeItem("accessToken");
     localStorage.removeItem("username");
+    localStorage.removeItem("firstname");
+    localStorage.removeItem("lastname");
     localStorage.removeItem("expires");
     navigate("/");
     window.location.reload();
@@ -47,7 +51,9 @@ const Header = ({ user }) => {
 
         <div className="nav-bar username">
           <div class="dropdown">
-            <button class="username-btn">{username}</button>
+            <button class="username-btn">
+              {firstname} {lastname}
+            </button>
             {user && user.role === "admin" && (
               <div class="dropdown-content">
                 <button onClick={dashboard}>Dashboard</button>

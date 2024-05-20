@@ -29,9 +29,12 @@ const SignIn = () => {
                 console.log(res.message);
                 localStorage.setItem("accessToken", res.data.token);
                 localStorage.setItem("username", res.data.user.username);
+                localStorage.setItem("firstname", res.data.user.firstname);
+                localStorage.setItem("lastname", res.data.user.lastname);
                 localStorage.setItem("expires", res.data.expires);
                 if (res.data.user.role && res.data.user.role === "user") {
                   navigate("/");
+                  window.location.reload();
                 } else if (
                   res.data.user.role &&
                   res.data.user.role === "admin"

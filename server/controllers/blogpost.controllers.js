@@ -95,7 +95,7 @@ exports.getSingleBlogpost = async (req, res, next) => {
   try {
     let singleBlogpost = await Blogpost.findById(req.params._id).populate(
       "author",
-      "username"
+      `${"firstname"} ${"lastname"}`
     );
     if (!singleBlogpost) {
       return res.status(404).json({
@@ -130,7 +130,10 @@ function extractChars(body) {
 exports.getAllBlogposts = async (req, res, next) => {
   res.header("Content-Type", "application/json");
   try {
-    const allBlogposts = await Blogpost.find().populate("author", "username");
+    const allBlogposts = await Blogpost.find().populate(
+      "author",
+      `${"firstname"} ${"lastname"}`
+    );
 
     allBlogposts.map(
       (blogpost, index) => (blogpost.content = extractChars(blogpost.content))
