@@ -19,7 +19,7 @@
     padding: 10px 20px;
     margin: 15px;
     border: 1px solid $color--lightblue;
-    border-radius: 8px;
+    border-radius: 0.1rem;
     font-family: $fontfamily--primary;
     font-size: $font--medium;
     font-weight: 500;
@@ -43,7 +43,6 @@
     padding: 4px 10px;
     margin-right: 100px;
     border-radius: 4px;
-    color: $color--diff-blue;
     cursor: pointer;
   }
 
@@ -54,12 +53,13 @@
 
   .username-btn {
     padding: 6px 12px;
-    border: 1px solid $color--diff-blue;
+    border: 1px solid $color--indigo;
     border-radius: 0.5rem;
     font-family: $fontfamily--primary;
     font-size: $font--x-large;
     font-weight: 300;
-    color: $color--diff-blue;
+    text-transform: capitalize;
+    color: $color--indigo;
     background-color: $color--almost-black;
     cursor: pointer;
   }

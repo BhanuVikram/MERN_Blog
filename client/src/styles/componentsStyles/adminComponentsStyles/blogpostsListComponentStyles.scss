@@ -5,16 +5,16 @@
 .all-blogposts {
   width: 45vw;
   min-width: 800px;
-  height: 575px;
+  height: 775px;
   padding: 20px 50px 50px 50px;
   overflow: scroll;
 
   .single-blogpost {
     td {
-      padding: 10px 8px;
+      padding: 1rem 0.5rem;
       font-size: $font--medium;
       white-space: nowrap;
-      color: $color--indigo;
+      color: $color--diff-blue;
     }
   }
 
@@ -27,7 +27,7 @@
   }
 
   .date {
-    width: 115px;
+    width: 12rem;
   }
 
   a {
@@ -36,7 +36,7 @@
   }
 
   svg {
-    fill: $color--indigo;
+    fill: $color--diff-blue;
     cursor: pointer;
   }
 

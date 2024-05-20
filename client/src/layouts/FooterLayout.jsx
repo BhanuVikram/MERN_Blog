@@ -16,7 +16,9 @@ const Footer = () => {
       </div>
 
       <div className="logo">
-        <img src={logo} alt="MERN Blog Logo" />
+        <Link to={`/`}>
+          <img src={logo} alt="MERN Blog Logo" />
+        </Link>
       </div>
 
       <div className="footer-links">

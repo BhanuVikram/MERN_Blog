@@ -5,8 +5,9 @@
 .single-blogpost-component {
   position: relative;
   padding: 50px;
+  border-radius: 0.2rem;
   font-family: $fontfamily--primary;
-  color: $color--aliceblue;
+  color: $color--aliceblue-plus;
 
   .author-date {
     display: flex;
@@ -14,13 +15,14 @@
   }
 
   .author {
-    font-size: $font--medium;
-    font-weight: 600;
+    font-size: $font--small;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
   }
 
   .date {
     font-size: $font--small;
-    font-weight: 400;
+    font-weight: 500;
   }
 
   .blogpost-link {
@@ -29,16 +31,19 @@
   }
 
   .title {
-    padding: 30px 0;
-    min-height: 150px;
+    padding: 3rem 0;
+    height: 15rem;
+    text-align: center;
+    color: $color--aliceblue-plus;
   }
 
   .content {
-    height: 430px;
+    height: 20rem;
     font-size: $font--medium;
     text-align: justify;
-    line-height: 1.6rem;
+    line-height: 2rem;
     overflow: hidden;
+    color: $color--aliceblue-plus;
   }
 
   .button {
@@ -49,7 +54,7 @@
     button {
       padding: 8px 16px;
       border: 1px solid $color--lightblue;
-      border-radius: 6px;
+      border-radius: 0.1rem;
       font-family: $fontfamily--primary;
       font-size: $font--xxx-small;
       font-weight: 400;
@@ -58,11 +63,10 @@
       color: $color--lightblue;
       background-color: $color--indigo;
       cursor: pointer;
-
-      :hover {
-        border: 2px solid $color--lightblue;
-        font-weight: 600;
-      }
+    }
+    button:hover {
+      border: 2px solid $color--lightblue;
+      font-weight: 600;
     }
   }
 }

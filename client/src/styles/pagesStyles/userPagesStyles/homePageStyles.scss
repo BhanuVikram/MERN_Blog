@@ -9,15 +9,16 @@
     align-items: flex-start;
     justify-content: center;
     width: 100vw;
+    margin-top: 2rem;
   }
 
   .single-blogpost-component {
     width: 27%;
     margin: 2%;
     height: 770px;
-    box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.35);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 0px 20px 0px;
   }
   .single-blogpost-component:hover {
-    box-shadow: 0px 5px 25px rgba(255, 255, 255, 0.35);
+    box-shadow: rgba(99, 99, 99, 0.7) 0px 0px 25px 0px;
   }
 }

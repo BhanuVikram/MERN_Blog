@@ -6,22 +6,23 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   width: 100vw;
-  padding: 50px 0 70px 0;
-  margin-top: 80px;
+  padding: 4rem 0 5rem 0;
+  margin-top: 20rem;
   color: $color--lightblue;
-  background-color: rgba($color: $color--indigo, $alpha: 0.3);
+  background-color: rgba($color: $color--almost-black, $alpha: 0.5);
   box-shadow: rgba($color: $color--lightblue, $alpha: 0.3) 0px -10px 40px 0px;
 
   .copyright {
     display: flex;
     align-items: flex-end;
     justify-content: center;
+    font-family: $fontfamily--primary;
 
     a {
       margin-bottom: 10px;
       font-size: $font--medium;
       text-decoration: none;
-      color: $color--lightblue;
+      color: $color--diff-blue;
       opacity: 0.8;
 
       :hover {
@@ -49,7 +50,7 @@
     a {
       margin-left: 15px;
       font-size: $font--xxx-large;
-      color: $color--lightblue;
+      color: $color--diff-blue;
       opacity: 0.8;
 
       :hover {

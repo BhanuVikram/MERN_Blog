@@ -3,7 +3,7 @@
 @import "../../partials/_imagesPartials.scss";
 
 .single-blogpost-page {
-  margin: auto;
+  margin: 4rem auto;
   width: 900px;
   font-family: $fontfamily--primary;
   color: $color--diff-blue;
@@ -20,7 +20,7 @@
 
   .date {
     text-align: center;
-    padding-bottom: 40px;
+    padding-bottom: 4rem;
   }
 
   p {
@@ -36,22 +36,27 @@
 }
 
 code {
-  padding: 0.5rem 1rem;
+  padding: 0rem 0.5rem;
   display: inline-flex;
   border-radius: 0.3rem;
-  font-size: $font--small;
   font-family: $fontfamily--primary;
-  line-height: 1.6rem;
-  background-color: $color--black;
+  font-size: $font--small;
+  letter-spacing: 0.05rem;
+  line-height: 1.5rem;
   color: $color--light-indigo;
+  background-color: $color--almost-black-lighter;
 }
 
 .code-block {
-  margin: 1.5rem 0rem 1.5rem 0rem;
+  padding: 1rem 0.5rem;
+  margin: 0.7rem 0rem 0.7rem 0rem;
   text-wrap: wrap;
+  border-radius: 0.3rem;
+  color: $color--light-indigo;
+  background-color: $color--almost-black-lighter;
 }
 
 .inline-code {
   padding: 0rem 0.5rem;
-  margin: 0rem 0rem 0rem 0rem;
+  margin: 0rem;
 }

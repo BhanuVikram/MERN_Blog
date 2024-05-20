@@ -10,7 +10,7 @@
   justify-content: flex-start;
   min-width: 800px;
   width: 45vw;
-  height: 600px;
+  height: 800px;
   padding: 0 50px 50px 50px;
 
   .blogpost-title {
@@ -23,7 +23,7 @@
       display: block;
       padding-bottom: 10px;
       font-size: $font--x-large;
-      color: $color--indigo;
+      color: $color--diff-blue;
     }
 
     #title {
@@ -44,21 +44,21 @@
   .blogpost-content {
     display: block;
     width: 100%;
-    min-height: 430px;
+    min-height: 630px;
 
     label {
       display: block;
-      padding-top: 10px;
+      padding-top: 30px;
       padding-bottom: 10px;
       font-size: $font--x-large;
-      color: $color--indigo;
+      color: $color--diff-blue;
     }
   }
 
   .error-message {
-    text-align: left;
-    font-size: $font--small;
-    color: $color--lightblue;
+    text-align: right;
+    font-size: $font--x-small;
+    color: $color--diff-blue;
     padding-top: 4px;
   }
 
@@ -68,20 +68,20 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    gap: 2.5rem;
 
     .bottom-button {
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      width: 50%;
+      justify-content: center;
+      width: 100%;
     }
 
     button {
-      width: 80%;
+      width: 100%;
       padding: 8px 16px;
-      margin: 10px 0;
-      border: 1px solid $color--lightblue;
-      border-radius: 0.25rem;
+      border: 1px solid $color--diff-blue;
+      border-radius: 0.3rem;
       font-family: $fontfamily--primary;
       font-size: $font--x-small;
       font-weight: 400;
@@ -111,15 +111,16 @@
     justify-content: space-between;
 
     button {
-      padding: 4px 4px;
+      width: 2rem;
+      height: 2rem;
+      padding: 0.35rem 0.3rem 0.25rem 0.3rem;
       margin: 4px 2px;
-      border: 1px solid $color--lightblue;
+      border: 1px solid $color--diff-blue;
       border-radius: 0.25rem;
       font-family: $fontfamily--primary;
       font-size: $font--large;
       font-weight: 400;
       text-transform: uppercase;
-      letter-spacing: 1px;
       color: $color--lightblue;
       background-color: $color--indigo;
       cursor: pointer;
@@ -139,7 +140,7 @@
 
 .editor-content {
   width: 100%;
-  height: 290px;
+  height: 450px;
   overflow: scroll;
   margin-top: 20px;
   padding: 10px;
