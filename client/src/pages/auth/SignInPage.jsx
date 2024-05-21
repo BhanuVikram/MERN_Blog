@@ -34,7 +34,6 @@ const SignIn = () => {
                 localStorage.setItem("expires", res.data.expires);
                 if (res.data.user.role && res.data.user.role === "user") {
                   navigate("/");
-                  window.location.reload();
                 } else if (
                   res.data.user.role &&
                   res.data.user.role === "admin"

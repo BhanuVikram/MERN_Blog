@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import Context from "./context/context";
 
 // * ROUTING MODULES
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 // * PAGES IMPORT
 import Home from "./pages/user/Home";
@@ -14,10 +15,12 @@ import Page_500 from "./pages/lost/Lost500Page";
 
 // * LAYOUTS IMPORT
 import MainLayout from "./layouts/MainLayout";
+import axios from "axios";
 
 const App = () => {
   const accessToken = localStorage.getItem("accessToken");
   const [user, setUser] = useState("");
+  const { setUserLoggedIn, signOut } = useContext(Context);
 
   const headers = {
     Authorization: `Bearer ${accessToken}`,
@@ -25,38 +28,41 @@ const App = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      try {
-        const res = await fetch(`http://localhost:8000/api/v1/me`, { headers });
-        const data = await res.json();
-        setUser(data.user);
-      } catch (error) {
-        console.log(`Error fetching user data: ${error}`);
-      }
+      axios
+        .get(`http://localhost:8000/api/v1/me`, { headers })
+        .then((res) => {
+          setUser(res.data.user);
+          setUserLoggedIn(true);
+        })
+        .catch((error) => {
+          if (
+            error.message === "Request failed with status code 401" ||
+            error === "AxiosError: Request failed with status code 401"
+          ) {
+            signOut("/");
+          }
+        });
     };
     fetchUser();
   }, []);
 
   return (
-    <BrowserRouter>
-      <MainLayout user={user}>
-        <Routes>
-          <Route path="/" element={<Home />} />
+    <MainLayout user={user}>
+      <Routes>
+        <Route path="/" element={<Home />} />
 
-          <Route path="/blog/:_id" element={<Blogpost />} />
-          <Route
-            path="/dashboard"
-            element={
-              user && user.role && user.role === "admin" && <Dashboard />
-            }
-          />
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/404" element={<Page_404 />} />
-          <Route path="/500" element={<Page_500 />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </MainLayout>
-    </BrowserRouter>
+        <Route path="/blog/:_id" element={<Blogpost />} />
+        <Route
+          path="/dashboard"
+          element={user && user.role && user.role === "admin" && <Dashboard />}
+        />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/404" element={<Page_404 />} />
+        <Route path="/500" element={<Page_500 />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </MainLayout>
   );
 };
 

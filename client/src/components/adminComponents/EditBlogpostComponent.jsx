@@ -32,7 +32,7 @@ import { AiOutlineNodeCollapse } from "react-icons/ai";
 import { IoMdReturnLeft } from "react-icons/io";
 import { BiUndo } from "react-icons/bi";
 import { BiRedo } from "react-icons/bi";
-import EditBlogpostContext from "../../context/editBlogpostContext";
+import Context from "../../context/context";
 
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
@@ -276,7 +276,7 @@ const extensions = [
 
 const EditBlogpostComponent = () => {
   const { editToggle, setEditToggle, blogpostId, setBlogpostId } =
-    useContext(EditBlogpostContext);
+    useContext(Context);
   const [singleBlogpost, setSingleBlogpost] = useState({});
   const [title, setTitle] = useState("");
   const [editorContent, setEditorContent] = useState("");

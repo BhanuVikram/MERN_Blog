@@ -1,42 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "../styles/layoutsStyles/headerStyles.scss";
 import logo from "../assets/images/MERN_Blog_Logo.png";
 import { Link, useNavigate } from "react-router-dom";
+import Context from "../context/context";
 
 const Header = ({ user }) => {
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const { userLoggedIn, setUserLoggedIn, signOut } = useContext(Context);
   const navigate = useNavigate();
   const token = localStorage.getItem("accessToken");
   const username = localStorage.getItem("username");
   const firstname = localStorage.getItem("firstname");
   const lastname = localStorage.getItem("lastname");
-  const expirationDuration = parseInt(localStorage.getItem("expires"));
-  const expirationTime = expirationDuration + Date.now();
 
   useEffect(() => {
     if (token && username) {
       setUserLoggedIn(true);
-      const timeUntilExpiration = expirationTime - Date.now();
-      if (timeUntilExpiration > 0) {
-        const logoutTimer = setTimeout(signOut, timeUntilExpiration);
-        return () => clearTimeout(logoutTimer);
-      } else {
-        // * Token already expired
-        signOut();
-      }
+    } else {
+      signOut("/signin");
     }
-  }, [token, username, expirationDuration]);
-
-  function signOut() {
-    setUserLoggedIn(false);
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("username");
-    localStorage.removeItem("firstname");
-    localStorage.removeItem("lastname");
-    localStorage.removeItem("expires");
-    navigate("/");
-    window.location.reload();
-  }
+  }, [token, username]);
 
   function dashboard() {
     navigate("/dashboard");
@@ -57,12 +39,24 @@ const Header = ({ user }) => {
             {user && user.role === "admin" && (
               <div class="dropdown-content">
                 <button onClick={dashboard}>Dashboard</button>
-                <button onClick={signOut}>Sign Out</button>
+                <button
+                  onClick={() => {
+                    signOut("/signin");
+                  }}
+                >
+                  Sign Out
+                </button>
               </div>
             )}
             {user && user.role === "user" && (
               <div class="dropdown-content">
-                <button onClick={signOut}>Sign Out</button>
+                <button
+                  onClick={() => {
+                    signOut("/signin");
+                  }}
+                >
+                  Sign Out
+                </button>
               </div>
             )}
           </div>

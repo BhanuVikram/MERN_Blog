@@ -4,6 +4,12 @@ module.exports = (error, req, res, next) => {
   error.statusCode = error.statusCode || 500;
   error.message = error.message || "Internal Server Error";
 
+  // * JWT Expire error
+  if (error.name === "TokenExpiredError") {
+    const message = `Error: Token expired`;
+    error = new ErrorHandler(message, 401);
+  }
+
   // * cast error
   // * Wrong mongodb id error
   if (error.name === "CaseError") {
@@ -20,12 +26,6 @@ module.exports = (error, req, res, next) => {
   // * Wrong JWT token error
   if (error.name === "JsonWebTokenError") {
     const message = `Json Web Token is invalid, try again`;
-    error = new ErrorHandler(message, 400);
-  }
-
-  // * JWT Expire error
-  if (error.name === "TokenExpiredError") {
-    const message = `Json Web Token is expired, try again`;
     error = new ErrorHandler(message, 400);
   }
 

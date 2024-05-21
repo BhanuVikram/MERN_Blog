@@ -3,10 +3,10 @@ import CreateBlogpostComponent from "../../components/adminComponents/CreateBlog
 import EditBlogpostComponent from "../../components/adminComponents/EditBlogpostComponent";
 import BlogpostsListComponent from "../../components/adminComponents/BlogpostsListComponent";
 import "../../styles/pagesStyles/adminPagesStyles/dashboardPageStyles.scss";
-import EditBlogpostContext from "../../context/editBlogpostContext";
+import Context from "../../context/context";
 
 const Dashboard = () => {
-  const { editToggle, setEditToggle } = useContext(EditBlogpostContext);
+  const { editToggle, setEditToggle } = useContext(Context);
 
   return (
     <div className="dashboard">

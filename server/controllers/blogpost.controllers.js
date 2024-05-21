@@ -15,7 +15,7 @@ exports.createBlogpost = async (req, res, next) => {
     return res.status(201).json({
       success: true,
       newBlogpost,
-      message: "Blog created successfully!!!",
+      message: "Blog created successfully!",
     });
   } catch (error) {
     console.log(error);
@@ -50,7 +50,7 @@ exports.updateBlogpost = async (req, res, next) => {
     return res.status(200).json({
       success: true,
       singleBlogpost,
-      message: "Blog updated successfully!!!",
+      message: "Blog updated successfully!",
     });
   } catch (error) {
     console.log(error);

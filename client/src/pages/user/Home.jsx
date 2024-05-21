@@ -11,7 +11,9 @@ const Home = () => {
     axios
       .get("http://localhost:8000/api/v1/getallblogposts")
       .then((res) => setBlogposts(res.data.allBlogposts.reverse()))
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
 
   return (

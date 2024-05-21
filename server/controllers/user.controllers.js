@@ -21,7 +21,7 @@ exports.signUp = async (req, res, next) => {
       success: true,
       newUser,
       token,
-      message: "Sign up successful!!!",
+      message: "Sign up successful!",
     });
   } catch (error) {
     console.log(error);

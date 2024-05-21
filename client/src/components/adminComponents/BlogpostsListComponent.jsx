@@ -5,7 +5,7 @@ import "../../styles/componentsStyles/adminComponentsStyles/blogpostsListCompone
 import { PiEyeLight } from "react-icons/pi";
 import { CiEdit } from "react-icons/ci";
 import { CiTrash } from "react-icons/ci";
-import EditBlogpostContext from "../../context/editBlogpostContext";
+import Context from "../../context/context";
 
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
@@ -14,7 +14,7 @@ const headers = {
 
 const BlogpostsListComponent = () => {
   const { editToggle, setEditToggle, blogpostId, setBlogpostId } =
-    useContext(EditBlogpostContext);
+    useContext(Context);
   const [blogposts, setBlogposts] = useState([]);
 
   useEffect(() => {

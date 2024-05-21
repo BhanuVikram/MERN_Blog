@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 import "./styles/mainStyles.scss";
-import EditBlogpostContextProvider from "./context/EditBlogpostContextProvider.jsx";
+import ContextProvider from "./context/ContextProvider.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <EditBlogpostContextProvider>
-    <App />
-  </EditBlogpostContextProvider>
+  <BrowserRouter>
+    <ContextProvider>
+      <App />
+    </ContextProvider>
+  </BrowserRouter>
 );
