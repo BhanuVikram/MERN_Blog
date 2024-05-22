@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../../styles/componentsStyles/userComponentsStyles/singleBlogpostComponentStyles.scss";
 import { Link } from "react-router-dom";
 import Parser from "html-react-parser";

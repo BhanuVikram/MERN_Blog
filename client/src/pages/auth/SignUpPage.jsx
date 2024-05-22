@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import * as Yup from "yup";
 import { Formik, Field, ErrorMessage, Form } from "formik";
-import axios from "axios";
 import "../../styles/pagesStyles/authPagesStyles/authPageStyles.scss";
 
 const SignUpSchema = Yup.object().shape({

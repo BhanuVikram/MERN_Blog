@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Navigate, useParams } from "react-router-dom";
-import axios from "axios";
-import "../../styles/pagesStyles/userPagesStyles/singleBlogpostPageStyles.scss";
-import Parser from "html-react-parser";
 import Context from "../../context/context";
+import axios from "axios";
+import Parser from "html-react-parser";
+import "../../styles/pagesStyles/userPagesStyles/singleBlogpostPageStyles.scss";
 
 const Blogpost = () => {
   const { _id } = useParams();

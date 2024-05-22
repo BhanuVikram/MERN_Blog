@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "../styles/layoutsStyles/footerStyles.scss";
 import logo from "../assets/images/MERN_Blog_Logo.png";

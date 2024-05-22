@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import { EditorProvider, EditorContent, useEditor } from "@tiptap/react";
-import { Formik, Field, Form } from "formik";
+import Context from "../../context/context";
 import axios from "axios";
+import { EditorContent, useEditor } from "@tiptap/react";
+import { Formik, Field, Form } from "formik";
 import StarterKit from "@tiptap/starter-kit";
 import { Color } from "@tiptap/extension-color";
 import ListItem from "@tiptap/extension-list-item";
@@ -32,7 +33,6 @@ import { AiOutlineNodeCollapse } from "react-icons/ai";
 import { IoMdReturnLeft } from "react-icons/io";
 import { BiUndo } from "react-icons/bi";
 import { BiRedo } from "react-icons/bi";
-import Context from "../../context/context";
 
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
@@ -275,9 +275,7 @@ const extensions = [
 ];
 
 const EditBlogpostComponent = () => {
-  const { editToggle, setEditToggle, blogpostId, setBlogpostId } =
-    useContext(Context);
-  const [singleBlogpost, setSingleBlogpost] = useState({});
+  const { setEditToggle, blogpostId } = useContext(Context);
   const [title, setTitle] = useState("");
   const [editorContent, setEditorContent] = useState("");
   const [contentToggle, setContentToggle] = useState(true);
@@ -286,15 +284,15 @@ const EditBlogpostComponent = () => {
 
   // * TITLE TOGGLE
   useEffect(() => {
-    setIsTitle(title && title.length > 1 && title.length < 121);
+    setIsTitle(title && title.length >= 2 && title.length <= 120);
   }, [title]);
 
   // * CONTENT TOGGLE
   useEffect(() => {
     setIsContent(
       editorContent &&
-        editorContent.length > 99 &&
-        editorContent.length < 100001
+        editorContent.length >= 100 &&
+        editorContent.length <= 10000
     );
   }, [editorContent]);
 
@@ -304,7 +302,6 @@ const EditBlogpostComponent = () => {
         headers,
       })
       .then((res) => {
-        setSingleBlogpost(res.data.singleBlogpost);
         setTitle(
           res.data.singleBlogpost.title && res.data.singleBlogpost.title
         );
@@ -342,7 +339,7 @@ const EditBlogpostComponent = () => {
           title: "",
           content: "",
         }}
-        onSubmit={(values) => {
+        onSubmit={() => {
           if (title && editorContent) {
             axios
               .put(

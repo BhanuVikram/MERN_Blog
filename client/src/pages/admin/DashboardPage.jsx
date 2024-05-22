@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
+import Context from "../../context/context";
 import CreateBlogpostComponent from "../../components/adminComponents/CreateBlogpostComponent";
 import EditBlogpostComponent from "../../components/adminComponents/EditBlogpostComponent";
 import BlogpostsListComponent from "../../components/adminComponents/BlogpostsListComponent";
 import "../../styles/pagesStyles/adminPagesStyles/dashboardPageStyles.scss";
-import Context from "../../context/context";
 
 const Dashboard = () => {
-  const { editToggle, setEditToggle } = useContext(Context);
+  const { editToggle } = useContext(Context);
 
   return (
     <div className="dashboard">

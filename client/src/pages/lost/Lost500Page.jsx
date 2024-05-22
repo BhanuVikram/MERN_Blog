@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/pagesStyles/lostPagesStyles/lostPageStyles.scss";
 
-const Page_500 = () => {
+const Lost500Page = () => {
   return (
     <div className="lost">
       <h1>500</h1>
@@ -12,4 +12,4 @@ const Page_500 = () => {
   );
 };
 
-export default Page_500;
+export default Lost500Page;

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import Context from "../../context/context";
+import axios from "axios";
 import "../../styles/componentsStyles/adminComponentsStyles/blogpostsListComponentStyles.scss";
 import { PiEyeLight } from "react-icons/pi";
 import { CiEdit } from "react-icons/ci";
 import { CiTrash } from "react-icons/ci";
-import Context from "../../context/context";
 
 const accessToken = localStorage.getItem("accessToken");
 const headers = {
@@ -13,8 +13,7 @@ const headers = {
 };
 
 const BlogpostsListComponent = () => {
-  const { editToggle, setEditToggle, blogpostId, setBlogpostId } =
-    useContext(Context);
+  const { editToggle, setEditToggle, setBlogpostId } = useContext(Context);
   const [blogposts, setBlogposts] = useState([]);
 
   useEffect(() => {
