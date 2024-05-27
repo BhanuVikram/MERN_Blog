@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/pagesStyles/lostPagesStyles/lostPageStyles.scss";
+import "../../styles/pages/lost/lostPages.scss";
 
 const Lost500Page = () => {
   return (

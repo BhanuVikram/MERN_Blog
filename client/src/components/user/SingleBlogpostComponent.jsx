@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/componentsStyles/userComponentsStyles/singleBlogpostComponentStyles.scss";
+import "../../styles/components/user/singleBlogpostComponent.scss";
 import { Link } from "react-router-dom";
 import Parser from "html-react-parser";
 

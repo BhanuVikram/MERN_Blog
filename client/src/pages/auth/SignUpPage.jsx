@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
 import { Formik, Field, ErrorMessage, Form } from "formik";
-import "../../styles/pagesStyles/authPagesStyles/authPageStyles.scss";
+import "../../styles/pages/auth/authPages.scss";
 
 const SignUpSchema = Yup.object().shape({
   firstname: Yup.string().required("* First name is required"),

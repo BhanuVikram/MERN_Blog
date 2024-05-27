@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import Context from "../../context/context";
-import CreateBlogpostComponent from "../../components/adminComponents/CreateBlogpostComponent";
-import EditBlogpostComponent from "../../components/adminComponents/EditBlogpostComponent";
-import BlogpostsListComponent from "../../components/adminComponents/BlogpostsListComponent";
-import "../../styles/pagesStyles/adminPagesStyles/dashboardPageStyles.scss";
+import CreateBlogpostComponent from "../../components/admin/CreateBlogpostComponent";
+import EditBlogpostComponent from "../../components/admin/EditBlogpostComponent";
+import BlogpostsListComponent from "../../components/admin/BlogpostsListComponent";
+import "../../styles/pages/admin/dashboardPage.scss";
 
 const Dashboard = () => {
   const { editToggle } = useContext(Context);

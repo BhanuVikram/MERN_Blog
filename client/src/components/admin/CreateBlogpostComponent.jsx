@@ -10,7 +10,7 @@ import Underline from "@tiptap/extension-underline";
 import HardBreak from "@tiptap/extension-hard-break";
 import Code from "@tiptap/extension-code";
 import CodeBlock from "@tiptap/extension-code-block";
-import "../../styles/componentsStyles/adminComponentsStyles/createBlogpostComponentStyles.scss";
+import "../../styles/components/admin/createBlogpostComponent.scss";
 import { FiBold } from "react-icons/fi";
 import { FiUnderline } from "react-icons/fi";
 import { FiItalic } from "react-icons/fi";

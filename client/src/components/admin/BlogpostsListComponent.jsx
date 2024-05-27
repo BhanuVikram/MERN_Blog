@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Context from "../../context/context";
 import axios from "axios";
-import "../../styles/componentsStyles/adminComponentsStyles/blogpostsListComponentStyles.scss";
+import "../../styles/components/admin/blogpostsListComponent.scss";
 import { PiEyeLight } from "react-icons/pi";
 import { CiEdit } from "react-icons/ci";
 import { CiTrash } from "react-icons/ci";

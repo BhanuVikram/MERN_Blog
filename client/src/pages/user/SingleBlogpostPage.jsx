@@ -3,7 +3,7 @@ import { Navigate, useParams } from "react-router-dom";
 import Context from "../../context/context";
 import axios from "axios";
 import Parser from "html-react-parser";
-import "../../styles/pagesStyles/userPagesStyles/singleBlogpostPageStyles.scss";
+import "../../styles/pages/user/singleBlogpostPage.scss";
 
 const Blogpost = () => {
   const { _id } = useParams();

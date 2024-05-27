@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Context from "../context/context";
-import "../styles/layoutsStyles/headerStyles.scss";
+import "../styles/layouts/headerLayout.scss";
 import logo from "../assets/images/MERN_Blog_Logo.png";
 
 const Header = ({ user }) => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../styles/layoutsStyles/footerStyles.scss";
+import "../styles/layouts/footerLayout.scss";
 import logo from "../assets/images/MERN_Blog_Logo.png";
 import { SiAiohttp } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
