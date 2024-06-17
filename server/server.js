@@ -1,7 +1,6 @@
 const app = require("./app");
 const dotenv = require("dotenv");
 const connectDB = require("./config/database");
-const { connect } = require("mongoose");
 
 // * CONFIG
 
