@@ -10,7 +10,7 @@ import Blogpost from "./pages/user/SingleBlogpostPage";
 import Dashboard from "./pages/admin/DashboardPage";
 import SignIn from "./pages/auth/SignInPage";
 import SignUp from "./pages/auth/SignUpPage";
-import Lost400Page from "./pages/lost/Lost404Page";
+import Lost404Page from "./pages/lost/Lost404Page";
 import Lost500Page from "./pages/lost/Lost500Page";
 
 // * LAYOUTS IMPORT
@@ -57,7 +57,7 @@ const App = () => {
         />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/404" element={<Lost400Page />} />
+        <Route path="/404" element={<Lost404Page />} />
         <Route path="/500" element={<Lost500Page />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
