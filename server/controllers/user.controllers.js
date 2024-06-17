@@ -82,6 +82,19 @@ exports.signIn = async (req, res, next) => {
   }
 };
 
+// * SIGN OUT
+
+exports.signOut = async (req, res, next) => {
+  res.cookie("token", null, {
+    expires: new Date(Date.now()),
+    httpOnly: true,
+  });
+  res.status(200).json({
+    success: true,
+    message: "Log out successful",
+  });
+};
+
 // * MY PROFILE
 
 exports.myProfile = async (req, res, next) => {

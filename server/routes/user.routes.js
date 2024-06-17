@@ -9,6 +9,7 @@ const { isAuthenticated } = require("../middlewares/auth.middlerwares");
 const {
   signUp,
   signIn,
+  signOut,
   myProfile,
 } = require("../controllers/user.controllers.js");
 
@@ -18,6 +19,7 @@ const router = express.Router();
 
 router.route("/signup").post(signUp);
 router.route("/signin").post(signIn);
+router.route("/signout").get(isAuthenticated, signOut);
 router.route("/me").get(isAuthenticated, myProfile);
 
 module.exports = router;
